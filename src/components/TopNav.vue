@@ -1,29 +1,62 @@
 <template>
-  <el-menu
-    :default-active="activeIndex"
-    class="el-menu-demo"
-    mode="horizontal"
-    @select="handleSelect"
-  >
-    <el-menu-item index="1">Processing Center</el-menu-item>
-    <el-submenu index="2">
-      <template slot="title">Workspace</template>
-      <el-menu-item index="2-1">item one</el-menu-item>
-      <el-menu-item index="2-2">item two</el-menu-item>
-      <el-menu-item index="2-3">item three</el-menu-item>
-      <el-submenu index="2-4">
-        <template slot="title">item four</template>
-        <el-menu-item index="2-4-1">item one</el-menu-item>
-        <el-menu-item index="2-4-2">item two</el-menu-item>
-        <el-menu-item index="2-4-3">item three</el-menu-item>
-      </el-submenu>
-    </el-submenu>
-    <el-menu-item index="3" disabled>Info</el-menu-item>
-    <el-menu-item index="4">
-      <a href="https://www.ele.me" target="_blank">Orders</a>
-    </el-menu-item>
+  <el-menu class="el-menu top-navbar" mode="horizontal">
+    <ul class="menu-list">
+      <el-menu-item index="1">
+        <span>
+          <img src="../assets/icons/user.svg" alt="" />
+        </span>
+        Register</el-menu-item
+      >
+      <el-menu-item index="2">
+        <img src="../assets/icons/unlock.svg" alt="" />
+
+        Login</el-menu-item
+      >
+      <span class="pipe">|</span>
+      <div class="social-list"></div>
+    </ul>
   </el-menu>
 </template>
 <script>
 export default {};
 </script>
+<style lang="scss">
+.top-navbar {
+  height: 38px;
+  padding: 0 40px;
+  background: #202020;
+  border-bottom: transparent !important;
+  color: #f6f6f6;
+  .menu-list {
+    display: flex;
+    flex-direction: row-reverse;
+    .el-menu-item {
+      line-height: 38px;
+      height: 38px;
+      padding: 0 15px;
+      color: #f6f6f6;
+      font-size: 14px;
+      span {
+        img {
+          margin-bottom: 5px;
+          width: 18px;
+        }
+      }
+      &:hover {
+        background: none;
+        color: #ee2625;
+        span {
+          img {
+            fill: #ee2625;
+          }
+        }
+      }
+    }
+    .pipe {
+      color: #696969;
+      font-size: 24px;
+      margin-top: 2px;
+    }
+  }
+}
+</style>
