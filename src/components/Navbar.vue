@@ -1,22 +1,61 @@
 <template>
   <div id="navbar">
     <TopNav />
-    <div
-      class="bottom-nav"
+    <nav
+      class="top-nav"
+      id="top-nav"
+      :class="{ affix: scrollPoint > 30 }"
       :style="{ top: scrollPoint > 30 ? scrollPoint - scrollPoint : '' }"
-      style="transition: 1s"
     >
-      <div class="nav-brand">
+      <a href="#" class="nav-brand">
         <h2><span style="color:#ee2625;">spicy</span>mandarin</h2>
-      </div>
-      <el-menu class="el-menu-demo" mode="horizontal">
-        <el-menu-item index="1">Home</el-menu-item>
-        <el-menu-item index="2">About</el-menu-item>
-        <el-menu-item index="4">Our Talents</el-menu-item>
-        <el-menu-item index="4">Contact Us</el-menu-item>
-        <!-- <span>{{ scrollPoint }}</span> -->
-      </el-menu>
-    </div>
+      </a>
+      <input class="menu-btn" type="checkbox" id="menu-btn" />
+      <label class="menu-icon" for="menu-btn"
+        ><span class="navicon"></span
+      ></label>
+      <ul class="menu">
+        <li>
+          <router-link to="/">
+            Home
+          </router-link>
+        </li>
+
+        <li>
+          <router-link to="/about">
+            About us
+          </router-link>
+        </li>
+
+        <li>
+          <router-link to="/team">
+            team
+          </router-link>
+        </li>
+
+        <li>
+          <router-link to="/contact">
+            contact us
+          </router-link>
+        </li>
+
+        <hr class="seperator" />
+        <ul class="signup">
+          <li>
+            <router-link to="/login">
+              <img src="../assets/icons/user-2.svg" alt="" />
+              login
+            </router-link>
+          </li>
+          <li>
+            <router-link to="/signup">
+              <img src="../assets/icons/unlock-2.svg" alt="" />
+              registration
+            </router-link>
+          </li>
+        </ul>
+      </ul>
+    </nav>
   </div>
 </template>
 <script>
@@ -30,34 +69,199 @@ export default {
 </script>
 <style lang="scss">
 #navbar {
-  .bottom-nav {
+  .top-nav {
     position: fixed;
     width: 100%;
-    // padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    z-index: 9;
+    transition: 0.5s ease-in-out;
+    &.affix {
+      background-color: #fff;
+      box-shadow: 0 1px 5px 0 #ededed;
+      .nav-brand {
+        h2 {
+          color: $black;
+        }
+      }
+      .menu {
+        li a {
+          color: $black !important;
+        }
+      }
+    }
     .nav-brand {
       padding-left: 40px;
-      text-align: left;
-      float: left;
       h2 {
         font-weight: 100;
         color: #f6f6f6;
         text-transform: uppercase;
       }
     }
-    .el-menu {
-      float: right;
-      border: none;
-      background: none;
+    .menu {
+      list-style: none;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
       padding-right: 40px;
-      .el-menu-item {
-        font-size: 14px;
-        color: #f6f6f6;
-        text-transform: uppercase;
-        font-weight: 300;
-        &:hover {
-          background: none;
-          color: #ee2625;
-          font-weight: 400;
+      margin: 0;
+      max-height: 0;
+      transition: max-height 0.5s ease-out;
+      li a {
+        display: inline-block;
+        min-width: 75px;
+        margin: 0.3em 0;
+        padding: 0 10px;
+        transition: 0.3 all;
+        text-decoration: none;
+        font-size: 16px;
+        text-transform: capitalize;
+        color: $white;
+
+        &:focus,
+        &:hover,
+        &:active {
+          transform: scale(1.1) rotate(-2deg);
+          color: $primary !important;
+        }
+      }
+    }
+
+    .logo {
+      display: inline-block;
+      width: 150px;
+    }
+
+    .menu-icon {
+      cursor: pointer;
+      display: inline-block;
+      padding: 28px 20px;
+
+      .navicon {
+        background: #20232d;
+        display: block;
+        height: 2px;
+        position: relative;
+        width: 1.625rem;
+
+        &:before,
+        &:after {
+          background: #20232d;
+          content: "";
+          display: block;
+          height: 100%;
+          position: absolute;
+          transition: all 0.2s ease-out;
+          width: 100%;
+        }
+
+        &:before {
+          top: 7px;
+        }
+
+        &:after {
+          top: -7px;
+        }
+      }
+    }
+
+    .menu-btn {
+      display: none;
+
+      &:checked ~ .menu {
+        max-height: 500px;
+      }
+
+      &:checked ~ .menu-icon .navicon {
+        background: transparent;
+
+        &:before {
+          transform: rotate(-45deg);
+        }
+
+        &:after {
+          transform: rotate(45deg);
+        }
+      }
+
+      &:checked ~ .menu-icon:not(.steps) .navicon {
+        &:before,
+        &:after {
+          top: 0;
+        }
+      }
+    }
+  }
+}
+// DESKTOP MENU CSS
+@media (min-width: 840px) {
+  #navbar {
+    .top-nav {
+      .menu {
+        width: auto;
+        max-height: none;
+        flex-direction: row;
+        .seperator {
+          display: none;
+        }
+      }
+      .signup {
+        display: none;
+      }
+    }
+    .top-nav {
+      .menu-icon {
+        display: none;
+      }
+    }
+  }
+}
+@media (max-width: 839px) {
+  .top-nav {
+    background: #fff;
+    .nav-brand {
+      h2 {
+        color: $black !important;
+      }
+    }
+    .menu {
+      text-align: left;
+      .seperator {
+        display: block;
+        border: 1px solid $light-gray;
+        box-shadow: none;
+        width: 100%;
+        margin: 15px 10px;
+      }
+      li {
+        padding: 10px 0;
+        a {
+          color: $black !important;
+          font-size: 18px;
+        }
+      }
+    }
+    .signup {
+      text-align: left;
+      display: block;
+      padding-left: 0;
+      padding-bottom: 30px;
+      li {
+        // padding: 10px;
+        list-style-type: none;
+        a {
+          color: $black;
+          text-transform: capitalize;
+          img {
+            position: relative;
+            top: 3px;
+            width: 22px;
+            margin-right: 5px;
+          }
         }
       }
     }

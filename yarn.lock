@@ -822,6 +822,11 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
+"@fortawesome/fontawesome-free@^5.13.0":
+  version "5.13.0"
+  resolved "https://registry.npmjs.org/@fortawesome/fontawesome-free/-/fontawesome-free-5.13.0.tgz#fcb113d1aca4b471b709e8c9c168674fbd6e06d9"
+  integrity sha512-xKOeQEl5O47GPZYIMToj6uuA2syyFlq9EMSl2ui0uytjY9xbe8XS0pexNWmxrdcCyNGyDmLyYw5FtKsalBUeOg==
+
 "@hapi/address@2.x.x":
   version "2.1.4"
   resolved "https://registry.npmjs.org/@hapi/address/-/address-2.1.4.tgz#5d67ed43f3fd41a69d4b9ff7b56e7c0d1d0a81e5"
@@ -7913,11 +7918,6 @@ vue-hot-reload-api@^2.3.0:
   resolved "https://registry.npmjs.org/vue-hot-reload-api/-/vue-hot-reload-api-2.3.4.tgz#532955cc1eb208a3d990b3a9f9a70574657e08f2"
   integrity sha512-BXq3jwIagosjgNVae6tkHzzIk6a8MHFtzAdwhnV5VlvPTFxDCvIttgSiHWjdGoTJvXtmRu5HacExfdarRcFhog==
 
-vue-ionicons@^3.0.4:
-  version "3.0.4"
-  resolved "https://registry.npmjs.org/vue-ionicons/-/vue-ionicons-3.0.4.tgz#06dbb8334def235d9afe7ecb40bb1c01ba99b24d"
-  integrity sha512-tOS0dD7jAa4g8HsaL11JOgOPnog6Eh6IrxJWYVAE6oaXHf8tegidboNSKRxteu8sJ9cunj+az4skSlq0Pivgzg==
-
 vue-loader@^15.9.2:
   version "15.9.2"
   resolved "https://registry.npmjs.org/vue-loader/-/vue-loader-15.9.2.tgz#ae01f5f4c9c6a04bff4483912e72ef91a402c1ae"
@@ -7959,6 +7959,11 @@ vue@^2.6.11:
   version "2.6.11"
   resolved "https://registry.npmjs.org/vue/-/vue-2.6.11.tgz#76594d877d4b12234406e84e35275c6d514125c5"
   integrity sha512-VfPwgcGABbGAue9+sfrD4PuwFar7gPb1yl1UK1MwXoQPAw0BKSqWfoYCT/ThFrdEVWoI51dBuyCoiNU9bZDZxQ==
+
+vueperslides@^2.8.6:
+  version "2.8.6"
+  resolved "https://registry.npmjs.org/vueperslides/-/vueperslides-2.8.6.tgz#f0197da1cfa506598a27114b1f1851561573cf68"
+  integrity sha512-As9cnfrM2w5Y9ysiwrMKKdBU5j77nuKF3aULZIZLARGiOUnHVEv0rEbapLrEaLuPxMev5D9XLGsRsOapcXOzEQ==
 
 vuex@^3.4.0:
   version "3.4.0"

@@ -1,36 +1,36 @@
 <template>
   <div class="home">
-    <Navbar :scrollPoint="scrollPoint" />
     <SplashVideo />
+    <Features />
+    <Lessons />
+    <RecentLessons />
+    <NewsLetter />
   </div>
 </template>
 
 <script>
-import Navbar from "@/components/Navbar.vue";
+// import Navbar from "@/components/Navbar.vue";
 import SplashVideo from "@/components/home/SplashVideo.vue";
+import Features from "@/components/home/Features.vue";
+import Lessons from "@/components/home/Lessons.vue";
+import RecentLessons from "@/components/home/RecentLessons.vue";
+import NewsLetter from "@/components/home/NewsLetter.vue";
+import Donate from "@/components/Donate.vue";
+import LargeFooter from "@/components/footer/LargeFooter.vue";
+import BottomFooter from "@/components/footer/BottomFooter.vue";
 
 export default {
   name: "Home",
-  data() {
-    return {
-      scrollPoint: ""
-    };
-  },
   components: {
-    Navbar,
-    SplashVideo
-  },
-  mounted() {
-    var vm = this;
-    window.addEventListener("scroll", function(e) {
-      vm.scrollPoint = window.scrollY;
-      console.log(this.scrollPoint);
-    });
-  },
-  watch: {
-    scrollPoint: function(val, oldval) {
-      console.log(val, oldval);
-    }
+    // Navbar,
+    SplashVideo,
+    Features,
+    Lessons,
+    RecentLessons,
+    NewsLetter,
+    Donate,
+    LargeFooter,
+    BottomFooter
   }
 };
 </script>
