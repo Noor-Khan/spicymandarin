@@ -2,18 +2,42 @@
   <el-menu class="el-menu top-navbar" mode="horizontal">
     <ul class="menu-list">
       <el-menu-item index="1">
-        <span>
-          <img src="../assets/icons/user.svg" alt="" />
-        </span>
-        Register</el-menu-item
-      >
+        <router-link to="/register">
+          <i class="el-icon-unlock"></i>
+          Register
+        </router-link>
+      </el-menu-item>
       <el-menu-item index="2">
-        <img src="../assets/icons/unlock.svg" alt="" />
-
-        Login</el-menu-item
-      >
+        <router-link to="/signin">
+          <i class="el-icon-user"></i>
+          Login
+        </router-link>
+      </el-menu-item>
       <span class="pipe">|</span>
-      <div class="social-list"></div>
+      <div class="social-list">
+        <ul>
+          <li>
+            <a href="##">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </li>
+          <li>
+            <a href="##">
+              <i class="fab fa-vimeo"></i>
+            </a>
+          </li>
+          <li>
+            <a href="##">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </li>
+          <li>
+            <a href="##">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
     </ul>
   </el-menu>
 </template>
@@ -30,6 +54,9 @@ export default {};
   .menu-list {
     display: flex;
     flex-direction: row-reverse;
+    &:focus {
+      outline: none;
+    }
     .el-menu-item {
       line-height: 38px;
       height: 38px;
@@ -57,6 +84,21 @@ export default {};
       font-size: 24px;
       margin-top: 2px;
     }
+    .social-list {
+      padding: 9px 0;
+      ul {
+        li {
+          display: inline-block;
+          list-style-type: none;
+          padding-right: 20px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 840px) {
+  .top-navbar {
+    display: none;
   }
 }
 </style>

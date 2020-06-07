@@ -1,6 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Rosarivo&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rosarivo&display=swap");
 
+html {
+  scroll-behavior: smooth;
+}
 body {
   margin: 0;
 
@@ -8,9 +11,141 @@ body {
   a,
   li {
     color: #f6f6f6;
+    letter-spacing: 0.4px;
+  }
+  a {
+    text-decoration: none;
+    i {
+      padding-bottom: 4px;
+      margin-right: 0 !important;
+      font-size: 16px !important;
+    }
+    &:hover {
+      color: $primary;
+      i {
+        color: $primary;
+      }
+    }
+    &:focus,
+    &:hover,
+    &:active {
+      background: none;
+    }
+  }
+  .el-breadcrumb__inner a:hover,
+  .el-breadcrumb__inner.is-link:hover {
+    color: $primary !important;
   }
 
   button {
     font-family: "Quicksand";
+  }
+
+  .avatar-dropdown {
+    width: 150px;
+    right: 20px !important;
+    left: unset !important;
+    padding: 10px 20px;
+    text-transform: capitalize;
+    font-family: "Quicksand";
+    .heading {
+      h4 {
+        color: $gray;
+        margin-bottom: 0;
+        margin-top: 5px;
+      }
+      h3 {
+        margin-top: 5px;
+      }
+    }
+    hr {
+      border: 1px solid #f6f6f6;
+    }
+    li {
+      padding: 0;
+      transition: 0.3 ease-in-out;
+      &:hover {
+        color: $primary !important;
+        background: none !important;
+        a {
+          color: $primary !important;
+        }
+      }
+      a {
+        color: $black !important;
+      }
+    }
+    .popper__arrow {
+      left: 165.5px !important;
+    }
+  }
+  .seperator {
+    width: 60px;
+    margin-top: 10px;
+    border: 1px solid $primary;
+    box-shadow: 0 2px 6px 0 $primary;
+  }
+
+  .sep {
+    width: 40px;
+    margin-top: 10px;
+    margin: 15px 0;
+    border: 1px solid $primary;
+    box-shadow: 0 2px 6px 0 $primary;
+  }
+
+  .img-responsive {
+    max-width: 100%;
+  }
+
+  .middle-content {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  input,
+  textarea {
+    background: #f7f7f7 !important;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 40px !important;
+    height: 55px !important;
+    font-size: 16px !important;
+    padding-left: 30px !important;
+    border: none !important;
+    font-family: "Quicksand";
+    &:focus {
+      border-color: $primary !important;
+    }
+  }
+  textarea {
+    border-radius: 5px !important;
+    padding-top: 10px !important;
+    min-height: 150px !important;
+  }
+  .el-input__suffix {
+    color: $primary;
+    margin-right: 20px;
+    .el-input__icon {
+      font-size: 18px;
+    }
+  }
+
+  // GRID BREAKPOINTS
+  @media (max-width: 1200px) {
+    #Lessons {
+      .lesson-box:nth-child(2) {
+        .el-row {
+          display: flex;
+          flex-direction: column-reverse;
+        }
+      }
+
+      .lesson-box:nth-child(4) {
+        .el-row {
+          display: flex;
+          flex-direction: column-reverse;
+        }
+      }
+    }
   }
 }
