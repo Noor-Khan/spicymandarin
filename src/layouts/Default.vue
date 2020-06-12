@@ -2,7 +2,9 @@
   <div>
     <Navbar :scrollPoint="scrollPoint" />
     <main class="main">
-      <slot />
+      <transition name="fade" mode="out-in">
+        <slot />
+      </transition>
     </main>
     <Donate />
     <LargeFooter />

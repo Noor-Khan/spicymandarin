@@ -2,7 +2,7 @@
   <div id="Sidebar">
     <ul class="sidebar-list">
       <li class="nav-item">
-        <router-link to="/dashboard">
+        <router-link to="/dashboard/overview">
           <i class="el-icon-monitor"></i>
           dashboard
         </router-link>
@@ -20,12 +20,12 @@
         </a>
         <ol class="course-dropdown-menu">
           <li class="nav-item">
-            <router-link to="/dashboard/newbie">
+            <router-link to="/dashboard/courses/newbie">
               newbie
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="">
+            <router-link to="/dashboard/courses/beginner">
               beginner
             </router-link>
           </li>
@@ -67,13 +67,13 @@
         </router-link>
       </li>
       <li class="nav-item">
-        <router-link to="">
+        <router-link to="/dashboard/feedback">
           <i class="el-icon-position"></i>
           send feedback
         </router-link>
       </li>
       <li class="nav-item">
-        <router-link to="">
+        <router-link to="/dashboard/donate">
           <i class="el-icon-medal-1"></i>
           donate
         </router-link>
@@ -180,6 +180,9 @@ export default {
           margin-right: 10px !important;
         }
       }
+    }
+    hr {
+      border: 1px solid #efefef;
     }
   }
 }
