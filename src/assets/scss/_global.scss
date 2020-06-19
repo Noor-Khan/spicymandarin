@@ -129,6 +129,14 @@ body {
       font-size: 18px;
     }
   }
+  .el-select-dropdown__list {
+    li {
+      font-family: "Quicksand";
+    }
+  }
+  .el-footer {
+    padding: 0;
+  }
 
   // GRID BREAKPOINTS
   @media (max-width: 1200px) {

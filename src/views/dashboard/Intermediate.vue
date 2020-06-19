@@ -1,5 +1,5 @@
 <template>
-  <div id="Newbie">
+  <div id="Intermediate">
     <DashboardBreadcrumb />
     <el-row :gutter="20">
       <el-col :lg="16">
@@ -150,7 +150,7 @@ export default {
         },
         {
           title: "Purus non enim praesent elementum",
-          category: "newbie",
+          category: "intermediate",
           subCategory: "booking",
           img: "/images/videoimg.jpg"
         },
@@ -215,7 +215,7 @@ export default {
 };
 </script>
 <style lang="scss">
-#Newbie {
+#Intermediate {
   .main-media {
     text-align: left;
     margin: 2rem 0;

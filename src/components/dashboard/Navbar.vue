@@ -33,17 +33,17 @@
                 <h3>John Doe</h3>
               </div>
               <el-dropdown-item icon="el-icon-s-custom">
-                <router-link to="/profile">
+                <router-link to="/dashboard/profile">
                   profile
                 </router-link>
               </el-dropdown-item>
               <el-dropdown-item icon="el-icon-s-tools">
-                <router-link to="/settings">
+                <router-link to="/dashboard/settings">
                   settings
                 </router-link>
               </el-dropdown-item>
               <el-dropdown-item icon="el-icon-info">
-                <router-link to="/faq">
+                <router-link to="/dashboard/help">
                   help
                 </router-link>
               </el-dropdown-item>
@@ -59,7 +59,7 @@
         </div>
         <ul class="right-nav-panel">
           <li>
-            <router-link to="/overview">
+            <router-link to="/dashboard/overview">
               <i class="el-icon-s-home"></i>
             </router-link>
           </li>

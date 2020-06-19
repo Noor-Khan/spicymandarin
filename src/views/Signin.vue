@@ -48,7 +48,12 @@
           <el-row>
             <el-col :lg="24">
               <div class="signup-button">
-                <DefaultButton text="sign up" btnType="primary" />
+                <DefaultButton
+                  text="sign up"
+                  btnType="primary"
+                  link="/dashboard/overview"
+                  @click="this.$router.push('/dashboard/overview')"
+                />
               </div>
             </el-col>
           </el-row>
@@ -105,10 +110,6 @@ export default {
 </script>
 <style lang="scss">
 #Signin {
-  background-image: url("../assets/images/bg.jpg");
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
   height: 110vh;
   padding: 40px 0;
   width: 100%;

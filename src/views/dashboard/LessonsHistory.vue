@@ -1,75 +1,11 @@
 <template>
-  <div id="overview">
+  <div id="LessonsHistory">
     <DashboardBreadcrumb />
-    <el-row :gutter="20" class="overview-cards">
-      <el-col :lg="8">
-        <div class="card">
-          <div class="card-level">
-            <h4>current level</h4>
-            <h3>Beginner</h3>
-          </div>
-          <div class="card-icon">
-            <img
-              src="../../assets/icons/meter1.png"
-              alt=""
-              class="img-responsive"
-            />
-          </div>
-          <div class="card-footer">
-            <div class="change-level">
-              <router-link to="/dashboard/settings">
-                change
-              </router-link>
-            </div>
-          </div>
-        </div>
-      </el-col>
-      <el-col :lg="8">
-        <div class="card">
-          <div class="card-level">
-            <h4>learned lessons</h4>
-            <h3>Beginner</h3>
-          </div>
-          <div class="card-icon">
-            <img
-              src="../../assets/icons/meter1.png"
-              alt=""
-              class="img-responsive"
-            />
-          </div>
-          <div class="card-footer">
-            <div class="change-level">
-              <el-progress :percentage="(2 / 20) * 100"></el-progress>
-            </div>
-          </div>
-        </div>
-      </el-col>
-      <el-col :lg="8">
-        <div class="card">
-          <div class="card-level">
-            <h4>last week report</h4>
-            <h3>0</h3>
-          </div>
-          <div class="card-icon">
-            <img
-              src="../../assets/icons/meter1.png"
-              alt=""
-              class="img-responsive"
-            />
-          </div>
-          <div class="card-footer">
-            <div class="change-level">
-              <p>no recent history found!</p>
-            </div>
-          </div>
-        </div>
-      </el-col>
-    </el-row>
     <div class="lessons-box">
       <el-row>
         <el-col :span="12">
           <div class="dashboard-heading">
-            <h2>latest lesson</h2>
+            <h2>this week</h2>
           </div>
         </el-col>
       </el-row>
@@ -127,111 +63,57 @@
       <el-row>
         <el-col :span="12">
           <div class="dashboard-heading">
-            <h2>newbie</h2>
+            <h2>this month</h2>
           </div>
-        </el-col>
-      </el-row>
-      <el-row :gutter="10">
-        <el-col :lg="8" v-for="(lesson, index) in lessons" :key="index">
-          <LessonCard
-            :title="`#${index + 1} ${lesson.title}...`"
-            :subCategory="lesson.subCategory"
-            :img="lesson.img"
-          />
         </el-col>
       </el-row>
       <el-row>
         <el-col :span="24">
-          <div class="view-more">
-            <DashboardButton
-              text="view more"
-              link="/dashboard/courses/newbie"
-            />
-          </div>
-        </el-col>
-      </el-row>
-    </div>
-    <div class="lessons-box">
-      <el-row>
-        <el-col :span="12">
-          <div class="dashboard-heading">
-            <h2>Beginner</h2>
-          </div>
-        </el-col>
-      </el-row>
-      <el-row :gutter="10">
-        <el-col :lg="8" v-for="(lesson, index) in lessons" :key="index">
-          <LessonCard
-            :title="`#${index + 1} ${lesson.title}...`"
-            :subCategory="lesson.subCategory"
-            :img="lesson.img"
-          />
-        </el-col>
-      </el-row>
-      <el-row>
-        <el-col :span="24">
-          <div class="view-more">
-            <DashboardButton
-              text="view more"
-              link="/dashboard/courses/beginner"
-            />
-          </div>
-        </el-col>
-      </el-row>
-    </div>
-    <div class="lessons-box">
-      <el-row>
-        <el-col :span="12">
-          <div class="dashboard-heading">
-            <h2>intermediate</h2>
-          </div>
-        </el-col>
-      </el-row>
-      <el-row :gutter="10">
-        <el-col :lg="8" v-for="(lesson, index) in lessons" :key="index">
-          <LessonCard
-            :title="`#${index + 1} ${lesson.title}...`"
-            :subCategory="lesson.subCategory"
-            :img="lesson.img"
-          />
-        </el-col>
-      </el-row>
-      <el-row>
-        <el-col :span="24">
-          <div class="view-more">
-            <DashboardButton
-              text="view more"
-              link="/dashboard/courses/intermediate"
-            />
-          </div>
-        </el-col>
-      </el-row>
-    </div>
-    <div class="lessons-box">
-      <el-row>
-        <el-col :span="12">
-          <div class="dashboard-heading">
-            <h2>advanced</h2>
-          </div>
-        </el-col>
-      </el-row>
-      <el-row :gutter="10">
-        <el-col :lg="8" v-for="(lesson, index) in lessons" :key="index">
-          <LessonCard
-            :title="`#${index + 1} ${lesson.title}...`"
-            :subCategory="lesson.subCategory"
-            :img="lesson.img"
-          />
-        </el-col>
-      </el-row>
-      <el-row>
-        <el-col :span="24">
-          <div class="view-more">
-            <DashboardButton
-              text="view more"
-              link="/dashboard/courses/advanced"
-            />
-          </div>
+          <vueper-slides
+            :breakpoints="{ 800: { visibleSlides: 1, slideMultiple: 2 } }"
+            slide-image-inside
+            :visible-slides="3"
+            :arrows-outside="true"
+            :infinite="true"
+            :touchable="false"
+            :bullets="false"
+            slide-image-inside
+            class="no-shadow"
+          >
+            <div slot="arrow-right" color="white" large>
+              <i class="el-icon-right"></i>
+            </div>
+            <div slot="arrow-left" color="white" large>
+              <i class="el-icon-back"></i>
+            </div>
+            <vueper-slide
+              v-for="(lesson, index) in lessons"
+              :key="index"
+              :image="lesson.img"
+              style="background: #d9d9d9;"
+            >
+              <template v-slot:content>
+                <div class="vueperslide__content-wrapper">
+                  <div class="overlay"></div>
+                  <div class="save-lesson">
+                    <i class="fa fa-heart"></i>
+                  </div>
+                  <div class="slider-content">
+                    <div class="lesson-title">
+                      <a href="##">
+                        <h4>
+                          {{ lesson.title }}
+                        </h4>
+                      </a>
+                    </div>
+                    <div class="lesson-category">
+                      <p>{{ lesson.category }}</p>
+                    </div>
+                  </div>
+                </div>
+              </template>
+            </vueper-slide>
+          </vueper-slides>
         </el-col>
       </el-row>
     </div>
@@ -240,15 +122,11 @@
 <script>
 import { VueperSlides, VueperSlide } from "vueperslides";
 import DashboardBreadcrumb from "../../components/dashboard/DashboardBreadcrumb";
-import LessonCard from "../../components/dashboard/LessonCard";
-import DashboardButton from "../../components/buttons/DashboardButton";
 export default {
   components: {
     DashboardBreadcrumb,
     VueperSlides,
-    VueperSlide,
-    LessonCard,
-    DashboardButton
+    VueperSlide
   },
   data() {
     return {
@@ -295,54 +173,7 @@ export default {
 };
 </script>
 <style lang="scss">
-#overview {
-  .overview-cards {
-    margin: 2rem 0;
-    .card {
-      background-color: $white;
-      padding: 20px 25px;
-      text-align: left;
-      border-radius: 5px;
-      box-shadow: 0px 0px 0px #fefefe;
-      .card-level {
-        float: left;
-        h4 {
-          text-transform: uppercase;
-          color: $gray;
-          font-size: 14px;
-          margin-bottom: 5px;
-        }
-        h3 {
-          margin-top: 0;
-          font-size: 24px;
-        }
-      }
-      .card-icon {
-        float: right;
-        margin-top: 1.5rem;
-        img {
-          width: 50px;
-          height: 50px;
-        }
-      }
-      .card-footer {
-        clear: both;
-        .change-level {
-          padding-top: 10px;
-          a {
-            color: $primary;
-            text-transform: capitalize;
-          }
-          p {
-            margin: 0;
-            font-size: 14px;
-            font-style: italic;
-            color: $primary;
-          }
-        }
-      }
-    }
-  }
+#LessonsHistory {
   .lessons-box {
     background-color: $white;
     border-radius: 5px;
@@ -354,10 +185,6 @@ export default {
         text-transform: capitalize;
         font-size: 22px;
       }
-    }
-    .view-more {
-      text-align: right;
-      margin-top: 20px;
     }
   }
   .vueperslides__parallax-wrapper {

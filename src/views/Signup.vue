@@ -136,10 +136,6 @@ export default {
 </script>
 <style lang="scss">
 #Signup {
-  background-image: url("../assets/images/bg.jpg");
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
   height: 110vh;
   width: 100%;
   padding: 40px 0;

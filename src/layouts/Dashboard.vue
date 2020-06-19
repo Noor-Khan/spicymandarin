@@ -10,9 +10,13 @@
         </el-aside>
         <el-container>
           <el-main>
-            <slot />
+            <transition name="page" mode="out-in">
+              <slot />
+            </transition>
           </el-main>
-          <el-footer>Footer</el-footer>
+          <el-footer>
+            <Footer />
+          </el-footer>
         </el-container>
       </el-container>
     </el-container>
@@ -21,15 +25,20 @@
 <script>
 import DashboardNavbar from "../components/dashboard/Navbar";
 import Sidebar from "../components/dashboard/Sidebar";
+import Footer from "../components/dashboard/Footer";
 export default {
   components: {
     DashboardNavbar,
-    Sidebar
+    Sidebar,
+    Footer
   }
 };
 </script>
 <style lang="scss">
 #DashboardLayout {
   background: #f6f6f6;
+  .el-main {
+    margin: 2rem 1rem;
+  }
 }
 </style>
