@@ -49,7 +49,7 @@
             <el-col :lg="24">
               <div class="signup-button">
                 <DefaultButton
-                  text="sign up"
+                  text="sign in"
                   btnType="primary"
                   link="/dashboard/overview"
                   @click="this.$router.push('/dashboard/overview')"
