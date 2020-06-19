@@ -1,7 +1,7 @@
 <template>
   <div id="Profile">
     <DashboardBreadcrumb />
-    <div class="profile-container">
+    <div class="profile-box">
       <el-row :gutter="20">
         <el-col :lg="16">
           <div class="edit-profile">
@@ -115,7 +115,7 @@ export default {
 </script>
 <style lang="scss">
 #Profile {
-  .profile-container {
+  .profile-box {
     margin: 3rem 0 2rem 0;
     .edit-profile {
       text-align: left;

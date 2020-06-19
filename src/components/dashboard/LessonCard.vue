@@ -1,7 +1,7 @@
 <template>
   <div class="lesson-card" :style="{ 'background-image': `url(${img})` }">
     <div class="overlay"></div>
-    <div class="save-lesson">
+    <div class="save-lesson" :class="{ saved: saved }">
       <i class="fa fa-heart"></i>
     </div>
     <div class="lesson-content">
@@ -21,7 +21,8 @@ export default {
   props: {
     title: String,
     subCategory: String,
-    img: String
+    img: String,
+    saved: Boolean
   }
 };
 </script>
@@ -32,6 +33,7 @@ export default {
   background-size: cover;
   margin: 5px 0;
   padding: 25%;
+  transition: 2s ease-in-out;
   .lesson-content {
     text-align: left;
     position: absolute;
@@ -86,10 +88,16 @@ export default {
     text-align: center;
     font-size: 18px;
     transition: 0.2s ease-in-out;
+    &.saved {
+      background-color: $primary;
+      color: $white;
+      border-color: $primary;
+    }
     &:hover {
       cursor: pointer;
-      background-color: $white;
-      color: $primary;
+      background-color: $primary;
+      color: $white;
+      border-color: $primary;
     }
   }
 }

@@ -6,3 +6,10 @@
     <el-breadcrumb-item>{{ this.$route.name }}</el-breadcrumb-item>
   </el-breadcrumb>
 </template>
+<style lang="scss">
+.el-breadcrumb {
+  .el-breadcrumb__item {
+    text-transform: capitalize;
+  }
+}
+</style>

@@ -1,7 +1,7 @@
 <template>
   <div id="Setting">
     <DashboardBreadcrumb />
-    <div class="setting-container">
+    <div class="setting-box">
       <el-row :gutter="20">
         <el-col :lg="16">
           <div class="edit-setting">
@@ -118,7 +118,7 @@ export default {
 </script>
 <style lang="scss">
 #Setting {
-  .setting-container {
+  .setting-box {
     margin: 3rem 0 2rem 0;
     .edit-setting {
       text-align: left;
@@ -159,7 +159,8 @@ export default {
           font-weight: 400;
           text-transform: capitalize;
           &:hover {
-            text-decoration: underline;
+            text-decoration: underline
+            ;
           }
         }
       }

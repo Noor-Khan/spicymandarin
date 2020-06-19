@@ -30,38 +30,38 @@
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="">
+            <router-link to="/dashboard/courses/intermediate">
               intermediate
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="">
+            <router-link to="/dashboard/courses/advanced">
               advanced
             </router-link>
           </li>
         </ol>
       </li>
       <li class="nav-item">
-        <router-link to="">
+        <router-link to="/dashboard/lessons-history">
           <i class="el-icon-time"></i>
           lesson history
         </router-link>
       </li>
       <li class="nav-item">
-        <router-link to="">
+        <router-link to="/dashboard/explore-lessons">
           <i class="el-icon-search"></i>
           explore lessons
         </router-link>
       </li>
       <li class="nav-item">
-        <router-link to="">
+        <router-link to="/dashboard/saved-lessons">
           <i class="el-icon-collection-tag"></i>
           saved lessons
         </router-link>
       </li>
       <hr />
       <li class="nav-item">
-        <router-link to="">
+        <router-link to="/forum">
           <i class="el-icon-chat-line-round"></i>
           forum
         </router-link>
@@ -114,6 +114,7 @@ export default {
     text-align: left;
     padding-left: 0;
     .dropdown-list {
+      cursor: pointer;
       a {
         i.el-icon-arrow-down,
         i.el-icon-arrow-up {
@@ -141,8 +142,8 @@ export default {
         list-style-type: none;
         li {
           a {
-            padding: 20px;
-            margin-left: 40px;
+            padding: 20px 20px 20px 60px;
+            // margin-left: 40px;
             color: $black;
             font-weight: 400;
           }
@@ -176,6 +177,10 @@ export default {
         text-transform: capitalize;
         font-weight: 400;
         padding: 20px;
+        &.active {
+          background-color: $primary;
+          color: $white !important;
+        }
         i {
           margin-right: 10px !important;
         }

@@ -84,6 +84,46 @@ const routes = [
     component: () => import("../views/dashboard/Beginner.vue")
   },
   {
+    path: "/dashboard/courses/intermediate",
+    name: "intermediate",
+    meta: {
+      layout: "dashboard"
+    },
+    component: () => import("../views/dashboard/Intermediate.vue")
+  },
+  {
+    path: "/dashboard/courses/advanced",
+    name: "advanced",
+    meta: {
+      layout: "dashboard"
+    },
+    component: () => import("../views/dashboard/Advanced.vue")
+  },
+  {
+    path: "/dashboard/lessons-history",
+    name: "lessons history",
+    meta: {
+      layout: "dashboard"
+    },
+    component: () => import("../views/dashboard/LessonsHistory.vue")
+  },
+  {
+    path: "/dashboard/explore-lessons",
+    name: "explore lessons",
+    meta: {
+      layout: "dashboard"
+    },
+    component: () => import("../views/dashboard/ExploreLessons.vue")
+  },
+  {
+    path: "/dashboard/saved-lessons",
+    name: "saved lessons",
+    meta: {
+      layout: "dashboard"
+    },
+    component: () => import("../views/dashboard/SavedLessons.vue")
+  },
+  {
     path: "/dashboard/profile",
     name: "profile",
     meta: {

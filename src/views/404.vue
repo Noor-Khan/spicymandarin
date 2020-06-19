@@ -15,6 +15,7 @@
   .inner-content {
     height: 100vh;
     display: table;
+    color: $white;
     width: 100%;
     h2 {
       font-size: 48px;

@@ -59,7 +59,7 @@
         </div>
         <ul class="right-nav-panel">
           <li>
-            <router-link to="/overview">
+            <router-link to="/dashboard/overview">
               <i class="el-icon-s-home"></i>
             </router-link>
           </li>
