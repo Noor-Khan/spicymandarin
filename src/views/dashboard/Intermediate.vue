@@ -217,9 +217,8 @@ export default {
       }
     },
     prevVideo(index) {
-      if (this.activeClass == index - 1) {
-        this.activeClass = index;
-        console.log("previous: ", this.activeClass, index);
+      if (this.activeClass == 0) {
+        this.activeClass = 0;
       } else {
         this.currentVideoIndex -= 1;
         this.activeClass = index - 1;
