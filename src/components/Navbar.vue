@@ -14,6 +14,7 @@
       <label class="menu-icon" for="menu-btn"
         ><span class="navicon"></span
       ></label>
+      <div></div>
       <ul class="menu">
         <li>
           <router-link to="/">
@@ -121,11 +122,11 @@ export default {
         font-size: 16px;
         text-transform: capitalize;
         color: $white;
-
+        &.exact-active,
         &:focus,
         &:hover,
         &:active {
-          transform: scale(1.1) rotate(-2deg);
+          font-weight: bold;
           color: $primary !important;
         }
       }
