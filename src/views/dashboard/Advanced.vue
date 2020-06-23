@@ -1,5 +1,5 @@
 <template>
-  <div id="Advanced">
+  <div id="Newbie">
     <DashboardBreadcrumb />
     <el-row :gutter="20">
       <el-col :lg="16">
@@ -48,7 +48,7 @@
             </div>
             <div v-else>
               <LazyYoutubeVideo
-                :src="`https://www.youtube.com/embed/${videoURL}`"
+                :src="`https://www.youtube.com/embed/${videoURL}?rel=0`"
               >
               </LazyYoutubeVideo>
               <div class="video-content">
@@ -73,7 +73,7 @@
                   </div>
                 </div>
                 <div class="about-lesson">
-                  <h4>about lesson</h4>
+                  <h4>Description</h4>
                   <p>{{ lessons[0].description }}</p>
                 </div>
               </div>
@@ -146,30 +146,45 @@ export default {
           title: "Purus non enim praesent elementum",
           category: "intermediate",
           subCategory: "business deal",
+          description:
+            "Quaerat debitis reprehenderit aliquam, asperiores ullam dignissimos nihil recusandae accusamus libero quae pariatur ad molestias magni, iusto corrupti quis perferendis laudantium! Minus.",
+          img: "/images/videoimg.jpg",
           img: "/images/videoimg.jpg"
         },
         {
           title: "Purus non enim praesent elementum",
-          category: "advanced",
+          category: "newbie",
           subCategory: "booking",
+          description:
+            "Quaerat debitis reprehenderit aliquam, asperiores ullam dignissimos nihil recusandae accusamus libero quae pariatur ad molestias magni, iusto corrupti quis perferendis laudantium! Minus.",
+          img: "/images/videoimg.jpg",
           img: "/images/videoimg.jpg"
         },
         {
           title: "Purus non enim praesent elementum",
           category: "advanced",
           subCategory: "reservation",
+          description:
+            "Quaerat debitis reprehenderit aliquam, asperiores ullam dignissimos nihil recusandae accusamus libero quae pariatur ad molestias magni, iusto corrupti quis perferendis laudantium! Minus.",
+          img: "/images/videoimg.jpg",
           img: "/images/videoimg.jpg"
         },
         {
           title: "Purus non enim praesent elementum",
           category: "advanced",
           subCategory: "party",
+          description:
+            "Quaerat debitis reprehenderit aliquam, asperiores ullam dignissimos nihil recusandae accusamus libero quae pariatur ad molestias magni, iusto corrupti quis perferendis laudantium! Minus.",
+          img: "/images/videoimg.jpg",
           img: "/images/videoimg.jpg"
         },
         {
           title: "Purus non enim praesent elementum",
           category: "advanced",
           subCategory: "wedding",
+          description:
+            "Quaerat debitis reprehenderit aliquam, asperiores ullam dignissimos nihil recusandae accusamus libero quae pariatur ad molestias magni, iusto corrupti quis perferendis laudantium! Minus.",
+          img: "/images/videoimg.jpg",
           img: "/images/videoimg.jpg"
         }
       ]
@@ -185,6 +200,7 @@ export default {
         this.videoURL = response.data.items[0].snippet.resourceId.videoId;
         this.videoTitle = response.data.items[0].snippet.title;
         console.log(response.data);
+        console.log("active:", this.activeClass);
       });
   },
   methods: {
@@ -201,11 +217,12 @@ export default {
       }
     },
     prevVideo(index) {
-      if (this.activeClass == this.lessons.length - 1) {
-        this.activeClass = this.lessons.length - 1;
+      if (this.activeClass == index - 1) {
+        this.activeClass = index;
+        console.log("previous: ", this.activeClass, index);
       } else {
-        this.currentVideoIndex += 1;
-        this.activeClass = index + 1;
+        this.currentVideoIndex -= 1;
+        this.activeClass = index - 1;
       }
     },
     closeReview() {
@@ -215,7 +232,7 @@ export default {
 };
 </script>
 <style lang="scss">
-#Advanced {
+#Newbie {
   .main-media {
     text-align: left;
     margin: 2rem 0;
