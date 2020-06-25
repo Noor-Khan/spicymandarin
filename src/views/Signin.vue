@@ -128,7 +128,7 @@ export default {
     border-radius: 5px;
     padding: 30px 40px;
     margin: 0 auto;
-    width: 40%;
+    width: 35%;
     @media (max-width: 800px) {
       width: 80%;
     }

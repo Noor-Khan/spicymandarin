@@ -32,7 +32,7 @@
               :show-rating="false"
               :star-size="40"
               active-color="#ee2625"
-              :glow="10"
+              :glow="5"
               @rating-selected="setRating"
               :increment="0.5"
             ></star-rating>

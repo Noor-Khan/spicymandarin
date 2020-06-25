@@ -111,7 +111,9 @@
               Skip the process
             </el-button>
           </div>
-          <ReviewLesson v-if="showReview" />
+          <transition name="slide-fade">
+            <ReviewLesson v-if="showReview" />
+          </transition>
         </div>
       </el-col>
     </el-row>
