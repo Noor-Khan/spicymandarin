@@ -8,6 +8,7 @@ import router from "./router";
 import store from "./store";
 import "./assets/scss/index.scss";
 import "vue-lazy-youtube-video/dist/style.css";
+import VuePlyr from "vue-plyr";
 import LazyYoutubeVideo from "vue-lazy-youtube-video";
 import "vueperslides/dist/vueperslides.css";
 import StarRating from "vue-star-rating";
@@ -26,6 +27,7 @@ Vue.component("blank-layout", Blank);
 Vue.component("dashboard-layout", Dashboard);
 
 Vue.config.productionTip = false;
+Vue.use(VuePlyr);
 Vue.use(VueAxios, axios);
 Vue.use(ElementUI);
 

@@ -32,6 +32,26 @@ body {
       background: none;
     }
   }
+  .plyr {
+    .plyr__control--overlaid {
+      background-color: rgba(230, 47, 45, 0.8);
+      &:hover {
+        background-color: $primary;
+      }
+    }
+    .plyr__controls {
+      button {
+        &:hover {
+          background-color: $primary;
+        }
+      }
+      input {
+        height: unset !important;
+        color: $primary;
+        padding-left: 0 !important;
+      }
+    }
+  }
   .el-breadcrumb__inner a:hover,
   .el-breadcrumb__inner.is-link:hover {
     color: $primary !important;

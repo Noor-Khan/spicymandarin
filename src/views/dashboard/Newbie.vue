@@ -9,10 +9,23 @@
           </h2>
           <div class="feature-video">
             <div v-if="lessons[currentVideoIndex]">
-              <LazyYoutubeVideo
+              <vue-plyr>
+                <div class="plyr__video-embed">
+                  <iframe
+                    :src="
+                      `https://www.youtube.com/embed/${videoURL}?iv_load_policy=3&modestbranding=1&playsinline=1&showinfo=0&rel=0&enablejsapi=1`
+                    "
+                    allowfullscreen
+                    allowtransparency
+                    allow="autoplay"
+                  >
+                  </iframe>
+                </div>
+              </vue-plyr>
+              <!-- <LazyYoutubeVideo
                 :src="`https://www.youtube.com/embed/${videoURL}?rel=0`"
               >
-              </LazyYoutubeVideo>
+              </LazyYoutubeVideo> -->
               <div class="video-content">
                 <h2>
                   {{
@@ -120,6 +133,7 @@
   </div>
 </template>
 <script>
+import { mapGetters } from "vuex";
 import DashboardBreadcrumb from "../../components/dashboard/DashboardBreadcrumb";
 import ReviewLesson from "../../components/dashboard/ReviewLesson";
 export default {
@@ -127,83 +141,23 @@ export default {
     DashboardBreadcrumb,
     ReviewLesson
   },
-  computed: {},
+  computed: {
+    ...mapGetters({
+      lessons: "newbie",
+      videoURL: "lessonLink"
+    })
+  },
   data() {
     return {
-      videoURL: "",
       videoTitle: "",
       activeClass: 0,
       currentVideoIndex: 0,
-      showReview: true,
-      lessons: [
-        {
-          title: "Purus non enim praesent elementum",
-          category: "beginner",
-          subCategory: "travel",
-          description:
-            "Quaerat debitis reprehenderit aliquam, asperiores ullam dignissimos nihil recusandae accusamus libero quae pariatur ad molestias magni, iusto corrupti quis perferendis laudantium! Minus.",
-          img: "/images/videoimg.jpg"
-        },
-        {
-          title: "Purus non enim praesent elementum",
-          category: "intermediate",
-          subCategory: "business deal",
-          description:
-            "Quaerat debitis reprehenderit aliquam, asperiores ullam dignissimos nihil recusandae accusamus libero quae pariatur ad molestias magni, iusto corrupti quis perferendis laudantium! Minus.",
-          img: "/images/videoimg.jpg",
-          img: "/images/videoimg.jpg"
-        },
-        {
-          title: "Purus non enim praesent elementum",
-          category: "newbie",
-          subCategory: "booking",
-          description:
-            "Quaerat debitis reprehenderit aliquam, asperiores ullam dignissimos nihil recusandae accusamus libero quae pariatur ad molestias magni, iusto corrupti quis perferendis laudantium! Minus.",
-          img: "/images/videoimg.jpg",
-          img: "/images/videoimg.jpg"
-        },
-        {
-          title: "Purus non enim praesent elementum",
-          category: "advanced",
-          subCategory: "reservation",
-          description:
-            "Quaerat debitis reprehenderit aliquam, asperiores ullam dignissimos nihil recusandae accusamus libero quae pariatur ad molestias magni, iusto corrupti quis perferendis laudantium! Minus.",
-          img: "/images/videoimg.jpg",
-          img: "/images/videoimg.jpg"
-        },
-        {
-          title: "Purus non enim praesent elementum",
-          category: "advanced",
-          subCategory: "party",
-          description:
-            "Quaerat debitis reprehenderit aliquam, asperiores ullam dignissimos nihil recusandae accusamus libero quae pariatur ad molestias magni, iusto corrupti quis perferendis laudantium! Minus.",
-          img: "/images/videoimg.jpg",
-          img: "/images/videoimg.jpg"
-        },
-        {
-          title: "Purus non enim praesent elementum",
-          category: "advanced",
-          subCategory: "wedding",
-          description:
-            "Quaerat debitis reprehenderit aliquam, asperiores ullam dignissimos nihil recusandae accusamus libero quae pariatur ad molestias magni, iusto corrupti quis perferendis laudantium! Minus.",
-          img: "/images/videoimg.jpg",
-          img: "/images/videoimg.jpg"
-        }
-      ]
+      showReview: true
     };
   },
   created() {
-    console.log("ENV variablesss", process.env.BASE_URL);
-    this.axios
-      .get(
-        "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLHfaYaxo6-wgDnOG06IolEssDQmyj06fC&key=AIzaSyABNLFge3Vp1gWHql4A-gpsGTcrnvrwUPg"
-      )
-      .then(response => {
-        this.videoURL = response.data.items[0].snippet.resourceId.videoId;
-        this.videoTitle = response.data.items[0].snippet.title;
-        console.log(response.data);
-        console.log("active:", this.activeClass);
-      });
+    this.$store.dispatch("loadLessons");
+    console.log(this.$store.commit("getLessons"));
   },
   methods: {
     currentVideo(index) {
@@ -303,6 +257,8 @@ export default {
       button {
         display: block;
         padding: 5px 10;
+        white-space: unset;
+        line-height: 20px;
         width: 100%;
         margin: 5px 0;
         text-align: left;
@@ -325,10 +281,12 @@ export default {
           }
         }
         span {
-          display: flex;
+          display: table;
           .video-icon {
-            margin-top: 5px;
-            margin-right: 15px;
+            display: table-cell;
+            vertical-align: middle;
+            position: relative;
+            right: 10px;
             i {
               font-size: 28px;
               width: 40px;
@@ -348,6 +306,7 @@ export default {
             }
             p {
               color: $gray;
+              margin: 5px 0;
               text-transform: capitalize;
             }
           }
