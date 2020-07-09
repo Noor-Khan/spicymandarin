@@ -7,7 +7,6 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import "./assets/scss/index.scss";
-import "vue-lazy-youtube-video/dist/style.css";
 import VuePlyr from "vue-plyr";
 import "vueperslides/dist/vueperslides.css";
 import StarRating from "vue-star-rating";
