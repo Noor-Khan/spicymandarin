@@ -9,19 +9,16 @@ import store from "./store";
 import "./assets/scss/index.scss";
 import "vue-lazy-youtube-video/dist/style.css";
 import VuePlyr from "vue-plyr";
-import LazyYoutubeVideo from "vue-lazy-youtube-video";
 import "vueperslides/dist/vueperslides.css";
 import StarRating from "vue-star-rating";
 
 import axios from "axios";
 import VueAxios from "vue-axios";
-
 import Default from "./layouts/Default.vue";
 import Blank from "./layouts/Blank.vue";
 import Dashboard from "./layouts/Dashboard.vue";
 
 Vue.component("star-rating", StarRating);
-Vue.component("LazyYoutubeVideo", LazyYoutubeVideo);
 Vue.component("default-layout", Default);
 Vue.component("blank-layout", Blank);
 Vue.component("dashboard-layout", Dashboard);

@@ -110,10 +110,7 @@ export default new Vuex.Store({
           "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLHfaYaxo6-wgDnOG06IolEssDQmyj06fC&key=AIzaSyABNLFge3Vp1gWHql4A-gpsGTcrnvrwUPg"
         )
         .then(response => {
-          var result;
-          response.data.items.forEach(element => {
-            result = element.snippet.resourceId.videoId;
-          });
+          var result = response.data.items;
           commit("getLessons", result);
         });
     }

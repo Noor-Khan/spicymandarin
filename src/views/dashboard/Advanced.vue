@@ -4,80 +4,62 @@
     <el-row :gutter="20">
       <el-col :lg="16">
         <div class="main-media">
-          <h2 v-if="">
-            {{ currentVideoIndex == 0 ? "Your first step!" : "What is next?" }}
-          </h2>
           <div class="feature-video">
-            <div v-if="lessons[currentVideoIndex]">
-              <LazyYoutubeVideo
-                :src="`https://www.youtube.com/embed/${videoURL}?rel=0`"
-              >
-              </LazyYoutubeVideo>
-              <div class="video-content">
-                <h2>
-                  {{
-                    `#${currentVideoIndex + 1} ${
-                      lessons[currentVideoIndex].title
-                    }`
-                  }}
-                </h2>
-                <h4>{{ lessons[currentVideoIndex].subCategory }}</h4>
-                <div class="navigation">
-                  <div
-                    class="arrow-left arrow"
-                    color="white"
-                    large
-                    @click="prevVideo(currentVideoIndex)"
-                  >
-                    <i class="el-icon-back"></i>
-                  </div>
-                  <div
-                    class="arrow-right arrow"
-                    color="white"
-                    large
-                    @click="nextVideo(currentVideoIndex)"
-                  >
-                    <i class="el-icon-right"></i>
-                  </div>
+            <h2 v-if="">
+              {{
+                currentVideoIndex == 0 ? "Your first step!" : "What is next?"
+              }}
+            </h2>
+            <VueperSlides
+              ref="myVueperSlides"
+              :touchable="false"
+              :bullets="false"
+              @ready="logEvents('ready', $event)"
+              @slide="logEvents('slide', $event)"
+            >
+              <template v-slot:arrow-left>
+                <div class="arrow">
+                  <i class="el-icon-back"></i>
                 </div>
-                <div class="about-lesson">
-                  <h4>Description</h4>
-                  <p>{{ lessons[currentVideoIndex].description }}</p>
+              </template>
+
+              <template v-slot:arrow-right>
+                <div class="arrow">
+                  <i class="el-icon-right"></i>
                 </div>
-              </div>
-            </div>
-            <div v-else>
-              <LazyYoutubeVideo
-                :src="`https://www.youtube.com/embed/${videoURL}?rel=0`"
-              >
-              </LazyYoutubeVideo>
-              <div class="video-content">
-                <h2>{{ "#1 " + lessons[0].title }}</h2>
-                <h4>{{ lessons[0].subCategory }}</h4>
-                <div class="navigation">
-                  <div
-                    class="arrow-left arrow"
-                    color="white"
-                    large
-                    @click="prevVideo(0)"
-                  >
-                    <i class="el-icon-back"></i>
+              </template>
+              <VueperSlide v-for="(lesson, index) in lessons" :key="index">
+                <template v-slot:content>
+                  <vue-plyr ref="plyr">
+                    <div class="plyr__video-embed">
+                      <iframe
+                        :src="
+                          `https://www.youtube.com/embed/${lesson &&
+                            lesson.snippet.resourceId
+                              .videoId}?rel=0&showinfo=0&enablejsapi=1`
+                        "
+                        frameborder="0"
+                        allowfullscreen
+                        allowtransparency
+                        allow="autoplay"
+                      >
+                      </iframe>
+                    </div>
+                  </vue-plyr>
+                  <div class="lesson-title">
+                    <h3>
+                      {{ lesson.snippet.title }}
+                    </h3>
                   </div>
-                  <div
-                    class="arrow-right arrow"
-                    color="white"
-                    large
-                    @click="nextVideo(0)"
-                  >
-                    <i class="el-icon-right"></i>
-                  </div>
-                </div>
-                <div class="about-lesson">
-                  <h4>Description</h4>
-                  <p>{{ lessons[0].description }}</p>
-                </div>
-              </div>
-            </div>
+                </template>
+              </VueperSlide>
+            </VueperSlides>
+          </div>
+          <div class="about-lesson">
+            <h4>Description</h4>
+            <p>
+              {{ lessons && lessons[currentVideoIndex].snippet.description }}
+            </p>
           </div>
         </div>
       </el-col>
@@ -95,8 +77,7 @@
                 <i class="el-icon-caret-right"></i>
               </div>
               <div class="video-content">
-                <h4>{{ `#${index + 1} ${lesson.title}` }}</h4>
-                <p>{{ lesson.subCategory }}</p>
+                <h4>{{ `#${index + 1} ${lesson && lesson.snippet.title}` }}</h4>
               </div>
             </el-button>
           </div>
@@ -111,118 +92,60 @@
               Skip the process
             </el-button>
           </div>
-          <ReviewLesson v-if="showReview" />
+          <transition name="slide-fade">
+            <ReviewLesson v-if="showReview" />
+          </transition>
         </div>
       </el-col>
     </el-row>
   </div>
 </template>
 <script>
+import { VueperSlides, VueperSlide } from "vueperslides";
+import { mapGetters } from "vuex";
 import DashboardBreadcrumb from "../../components/dashboard/DashboardBreadcrumb";
 import ReviewLesson from "../../components/dashboard/ReviewLesson";
 export default {
   components: {
     DashboardBreadcrumb,
-    ReviewLesson
+    ReviewLesson,
+    VueperSlides,
+    VueperSlide
   },
-  computed: {},
+  computed: {
+    ...mapGetters({
+      // lessons: "newbie",
+      lessons: "lessonLink"
+    })
+  },
   data() {
     return {
-      videoURL: "",
       videoTitle: "",
       activeClass: 0,
       currentVideoIndex: 0,
-      showReview: true,
-      lessons: [
-        {
-          title: "Purus non enim praesent elementum",
-          category: "beginner",
-          subCategory: "travel",
-          description:
-            "Quaerat debitis reprehenderit aliquam, asperiores ullam dignissimos nihil recusandae accusamus libero quae pariatur ad molestias magni, iusto corrupti quis perferendis laudantium! Minus.",
-          img: "/images/videoimg.jpg"
-        },
-        {
-          title: "Purus non enim praesent elementum",
-          category: "intermediate",
-          subCategory: "business deal",
-          description:
-            "Quaerat debitis reprehenderit aliquam, asperiores ullam dignissimos nihil recusandae accusamus libero quae pariatur ad molestias magni, iusto corrupti quis perferendis laudantium! Minus.",
-          img: "/images/videoimg.jpg",
-          img: "/images/videoimg.jpg"
-        },
-        {
-          title: "Purus non enim praesent elementum",
-          category: "newbie",
-          subCategory: "booking",
-          description:
-            "Quaerat debitis reprehenderit aliquam, asperiores ullam dignissimos nihil recusandae accusamus libero quae pariatur ad molestias magni, iusto corrupti quis perferendis laudantium! Minus.",
-          img: "/images/videoimg.jpg",
-          img: "/images/videoimg.jpg"
-        },
-        {
-          title: "Purus non enim praesent elementum",
-          category: "advanced",
-          subCategory: "reservation",
-          description:
-            "Quaerat debitis reprehenderit aliquam, asperiores ullam dignissimos nihil recusandae accusamus libero quae pariatur ad molestias magni, iusto corrupti quis perferendis laudantium! Minus.",
-          img: "/images/videoimg.jpg",
-          img: "/images/videoimg.jpg"
-        },
-        {
-          title: "Purus non enim praesent elementum",
-          category: "advanced",
-          subCategory: "party",
-          description:
-            "Quaerat debitis reprehenderit aliquam, asperiores ullam dignissimos nihil recusandae accusamus libero quae pariatur ad molestias magni, iusto corrupti quis perferendis laudantium! Minus.",
-          img: "/images/videoimg.jpg",
-          img: "/images/videoimg.jpg"
-        },
-        {
-          title: "Purus non enim praesent elementum",
-          category: "advanced",
-          subCategory: "wedding",
-          description:
-            "Quaerat debitis reprehenderit aliquam, asperiores ullam dignissimos nihil recusandae accusamus libero quae pariatur ad molestias magni, iusto corrupti quis perferendis laudantium! Minus.",
-          img: "/images/videoimg.jpg",
-          img: "/images/videoimg.jpg"
-        }
-      ]
+      showReview: true
     };
   },
   created() {
-    console.log("ENV variablesss", process.env.BASE_URL);
-    this.axios
-      .get(
-        "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLHfaYaxo6-wgDnOG06IolEssDQmyj06fC&key=AIzaSyABNLFge3Vp1gWHql4A-gpsGTcrnvrwUPg"
-      )
-      .then(response => {
-        this.videoURL = response.data.items[0].snippet.resourceId.videoId;
-        this.videoTitle = response.data.items[0].snippet.title;
-        console.log(response.data);
-        console.log("active:", this.activeClass);
-      });
+    this.$store.dispatch("loadLessons");
+  },
+  mounted() {
+    console.log("get the lessons", this.$refs.plyr[0].player.ended);
+    console.log("VUeeee", VueperSlides);
+    this.$refs.plyr[0].player.on("ended", function() {
+      alert(2222);
+    });
   },
   methods: {
+    logEvents(eventName, params) {
+      this.currentVideoIndex = params.currentSlide.index;
+      this.activeClass = params.currentSlide.index;
+      // }
+    },
     currentVideo(index) {
       this.currentVideoIndex = index;
       this.activeClass = index;
-    },
-    nextVideo(index) {
-      if (this.activeClass == this.lessons.length - 1) {
-        this.activeClass = this.lessons.length - 1;
-      } else {
-        this.currentVideoIndex += 1;
-        this.activeClass = index + 1;
-      }
-    },
-    prevVideo(index) {
-      if (this.activeClass == 0) {
-        this.activeClass = 0;
-      } else {
-        this.currentVideoIndex -= 1;
-        this.activeClass = index - 1;
-      }
+      this.$refs.myVueperSlides.goToSlide(index);
     },
     closeReview() {
       this.showReview = false;
@@ -235,11 +158,55 @@ export default {
   .main-media {
     text-align: left;
     margin: 2rem 0;
-    padding: 1rem 1rem 2rem 1rem;
     border-radius: 5px;
-    background-color: $white;
 
     .feature-video {
+      padding: 1rem 1rem 2rem 1rem;
+      background-color: $white;
+      .vueperslides {
+        .vueperslides__parallax-wrapper {
+          padding-bottom: 62.3333% !important;
+          &:before,
+          &:after {
+            display: none;
+          }
+        }
+        .vueperslides__arrows {
+          .arrow {
+            cursor: pointer;
+            text-align: center;
+            line-height: 57px;
+            display: inline-block;
+            margin-right: 5px;
+            width: 50px;
+            height: 50px;
+            background-color: $white;
+            border-radius: 50%;
+            box-shadow: 0px 2px 10px $light-gray;
+            &:hover {
+              color: $white;
+              background-color: $primary;
+              box-shadow: 0px 2px 10px rgba(238, 38, 37, 0.9);
+              i {
+                color: $white;
+              }
+            }
+            i {
+              color: $black;
+              font-size: 24px;
+            }
+          }
+          .vueperslides__arrow {
+            transform: translateY(0);
+            top: unset;
+            bottom: 0 !important;
+            &.vueperslides__arrow--prev {
+              right: 4.5em;
+              left: unset;
+            }
+          }
+        }
+      }
       .video-content {
         h2 {
           margin-bottom: 0;
@@ -250,32 +217,11 @@ export default {
         }
       }
     }
-    .navigation {
-      text-align: right;
-      margin-top: -5rem;
-      .arrow {
-        cursor: pointer;
-        text-align: center;
-        line-height: 57px;
-        display: inline-block;
-        margin-right: 5px;
-        width: 50px;
-        height: 50px;
-        background-color: $white;
-        border-radius: 50%;
-        box-shadow: 0px 2px 10px $light-gray;
-        &:hover {
-          color: $white;
-          background-color: $primary;
-          box-shadow: 0px 2px 10px rgba(238, 38, 37, 0.9);
-        }
-        i {
-          font-size: 24px;
-        }
-      }
-    }
     .about-lesson {
-      margin-top: 4rem;
+      margin-top: 1rem;
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 0.5rem 1rem 1rem 1rem;
       h4 {
         margin-bottom: 0;
       }
@@ -301,6 +247,8 @@ export default {
       button {
         display: block;
         padding: 5px 10;
+        white-space: unset;
+        line-height: 20px;
         width: 100%;
         margin: 5px 0;
         text-align: left;
@@ -323,10 +271,12 @@ export default {
           }
         }
         span {
-          display: flex;
+          display: table;
           .video-icon {
-            margin-top: 5px;
-            margin-right: 15px;
+            display: table-cell;
+            vertical-align: middle;
+            position: relative;
+            right: 10px;
             i {
               font-size: 28px;
               width: 40px;
@@ -346,6 +296,7 @@ export default {
             }
             p {
               color: $gray;
+              margin: 5px 0;
               text-transform: capitalize;
             }
           }
