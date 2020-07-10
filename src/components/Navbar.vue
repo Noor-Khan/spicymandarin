@@ -8,7 +8,9 @@
       :style="{ top: scrollPoint > 30 ? scrollPoint - scrollPoint : '' }"
     >
       <a href="#" class="nav-brand">
-        <h2><span style="color:#ee2625;">spicy</span>mandarin</h2>
+        <img src="../assets/logo-red.png" alt="" v-if="scrollPoint > 30" />
+        <img src="../assets/logo.png" alt="" v-else />
+        <!-- <h2><span style="color:#ee2625;">spicy</span>mandarin</h2> -->
       </a>
       <input class="menu-btn" type="checkbox" id="menu-btn" />
       <label class="menu-icon" for="menu-btn"
@@ -74,6 +76,7 @@ export default {
     position: fixed;
     width: 100%;
     display: flex;
+    padding: 15px 0;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;

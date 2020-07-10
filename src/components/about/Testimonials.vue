@@ -42,24 +42,24 @@ export default {
       nextIcon: true,
       clients: [
         {
-          title: "robert",
+          title: "Peter Collins (San Francisco)",
           img: "/images/client.jpg",
           feedback:
-            "Nunc cursus purus erat molestie tristique velit cras. Ac enim eget erat a. Porta purus erat molestie purus erat molestie tristiq  bibendum.",
+            "Continuing my studies has made Chinese lessons part of my life. Teachers are not only sexy but very intelligent!",
           stars: "/images/icons/5stars.svg"
         },
         {
-          title: "robert",
+          title: "Randall Shabazz (Los Angeles)",
           img: "/images/client.jpg",
           feedback:
-            "Nunc cursus purus erat molestie tristique velit cras. Ac enim eget erat a. Porta purus erat molestie purus erat molestie tristiq  bibendum.",
+            "It truly helped my Chinese improve enough to feel comfortable to travel alone while in China.",
           stars: "/images/icons/5stars.svg"
         },
         {
-          title: "robert",
+          title: "Charles Martin (Boulder)",
           img: "/images/client.jpg",
           feedback:
-            "Nunc cursus purus erat molestie tristique velit cras. Ac enim eget erat a. Porta purus erat molestie purus erat molestie tristiq  bibendum.",
+            "Carrie is smart, funny, a very good teacher, and in keeping with the site name, a beautiful and sexy woman.",
           stars: "/images/icons/5stars.svg"
         }
       ]

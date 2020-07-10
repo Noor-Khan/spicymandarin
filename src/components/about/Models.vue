@@ -171,6 +171,7 @@ export default {
             color: #fff;
           }
           p {
+            color: #f6f6f6;
             text-transform: capitalize;
           }
         }

@@ -5,26 +5,27 @@
         <div class="about-content">
           <div class="main-heading">
             <h4>about spicymandarin</h4>
-            <h2>who we are</h2>
+            <h2>what is spicymandarin?</h2>
             <hr class="seperator" />
           </div>
           <div class="about-para">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-              facilisi posuere cum bibendum quis eget. Morbi a tempor non eu,
-              pretium dictum eu. Sed velit, vivamus turpis metus ac. Semper ut
-              risus nam in. Suspendisse vitae tincidunt elit interdum nunc non.
-              Nunc cursus tristique velit cras. Ac enim eget erat a. Porta purus
-              erat molestie bibendum.
+              SexyMandarin is an educational institution that uses
+              unconventional but memorable methods in teaching Mandarin to our
+              passionate students with our sexy celebrity teachers.
             </p>
             <p>
-              Aliquam quam nunc, neque consectetur. Tincidunt id felis amet,
-              massa congue mauris, consequat luctus nec. Interdum eget mauris
-              accumsan tellus felis volutpat volutpat. Leo fringilla et faucibus
-              nisl sapien, scelerisque mi sed sed. Id amet ipsum est, ipsum
-              tristique dolor risus interdum nulla. Morbi egestas tincidunt
-              rutrum eget ipsum feugiat proin. Id ac sit tellus in mattis
-              aliquam. Sagittis nibh dictum tristique aliquam.
+              SexyMandarin started off with a group of people who had a fun idea
+              of shooting sexy Chinese girls that could teach Mandarin Chinese
+              in short 2 minute clips. After editing the clip, we decided to
+              post our first video, “Lesson 1: What time is it?” on youtube
+              where it became viral.
+            </p>
+            <p>
+              The project has been featured in various publications from “The
+              Daily Telegraph” to “Huffington Post”, and even mentioned by Jimmy
+              Falllon, in his U.S. prime time show. With it’s popularity, the
+              SexyMandarin youtube channel has over 2 million hits and counting.
             </p>
           </div>
         </div>
@@ -68,6 +69,7 @@ export default {};
       padding-bottom: 40px;
       p {
         font-size: 16px;
+        color: #f6f6f6;
         letter-spacing: 0.4px;
         line-height: 26px;
       }

@@ -118,6 +118,7 @@ export default {};
     p {
       line-height: 26px;
       font-size: 16px;
+      color: #f6f6f6;
       font-weight: 100;
     }
     ul {

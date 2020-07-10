@@ -12,7 +12,7 @@
         </el-col>
       </el-row>
       <el-row :gutter="20">
-        <el-col :lg="8" :sm="12" v-for="(member, index) in team" :key="index">
+        <el-col :lg="6" :sm="12" v-for="(member, index) in team" :key="index">
           <div class="team-box">
             <div class="team-img">
               <img :src="member.img" alt="" class="img-responsive" />
@@ -41,33 +41,53 @@ export default {
     return {
       team: [
         {
-          name: "Michael Gleissner",
-          title: "lesson designer",
+          name: "MICK GLEISSNER",
+          title: "MR. FUNG",
           img: "/images/team.jpg"
         },
         {
-          name: "Michael Gleissner",
-          title: "lesson designer",
+          name: "KAORU KIKUCHI",
+          title: "CARTOONIST",
           img: "/images/team.jpg"
         },
         {
-          name: "Michael Gleissner",
-          title: "lesson designer",
+          name: "MIKE WANG",
+          title: "LESSON DESIGNER",
           img: "/images/team.jpg"
         },
         {
-          name: "Michael Gleissner",
-          title: "lesson designer",
+          name: "ALFRED III GATSON",
+          title: "EDITOR",
           img: "/images/team.jpg"
         },
         {
-          name: "Michael Gleissner",
-          title: "lesson designer",
+          name: "MHARVEY O’NEIL",
+          title: "PRODUCER",
           img: "/images/team.jpg"
         },
         {
-          name: "Michael Gleissner",
-          title: "lesson designer",
+          name: "JUN SEGURA",
+          title: "WEB DEVELOPER",
+          img: "/images/team.jpg"
+        },
+        {
+          name: "AKANE MINAGAWA",
+          title: "MAKE-UP ARTIST",
+          img: "/images/team.jpg"
+        },
+        {
+          name: "ARTHUR TAO",
+          title: "DIRECTOR",
+          img: "/images/team.jpg"
+        },
+        {
+          name: "MARTIN ZAPANTA",
+          title: "DP",
+          img: "/images/team.jpg"
+        },
+        {
+          name: "VANESSA TUAN",
+          title: "TEACHER",
           img: "/images/team.jpg"
         }
       ]

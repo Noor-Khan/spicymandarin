@@ -6,6 +6,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    isLoading: false,
     lessonLink: "",
     lessons: {
       newbie: [
@@ -87,6 +88,9 @@ export default new Vuex.Store({
     }
   },
   getters: {
+    isLoading(state) {
+      return state.isLoading;
+    },
     lessonLink(state) {
       return state.lessonLink;
     },
@@ -100,6 +104,7 @@ export default new Vuex.Store({
   mutations: {
     getLessons(state, payload) {
       state.lessonLink = payload;
+      state.isLoading = true;
       console.log("link: ", payload);
     }
   },

@@ -10,6 +10,7 @@ import "./assets/scss/index.scss";
 import VuePlyr from "vue-plyr";
 import "vueperslides/dist/vueperslides.css";
 import StarRating from "vue-star-rating";
+import VueMasonry from "vue-masonry-css";
 
 import axios from "axios";
 import VueAxios from "vue-axios";
@@ -23,6 +24,7 @@ Vue.component("blank-layout", Blank);
 Vue.component("dashboard-layout", Dashboard);
 
 Vue.config.productionTip = false;
+Vue.use(VueMasonry);
 Vue.use(VuePlyr);
 Vue.use(VueAxios, axios);
 Vue.use(ElementUI);

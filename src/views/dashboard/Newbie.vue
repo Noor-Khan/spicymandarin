@@ -5,16 +5,17 @@
       <el-col :lg="16">
         <div class="main-media">
           <div class="feature-video">
-            <h2 v-if="">
-              {{
-                currentVideoIndex == 0 ? "Your first step!" : "What is next?"
-              }}
-            </h2>
+            <PuSkeleton circle height="50px" :count="2">
+              <h2 v-if="">
+                {{
+                  currentVideoIndex == 0 ? "Your first step!" : "What is next?"
+                }}
+              </h2>
+            </PuSkeleton>
             <VueperSlides
               ref="myVueperSlides"
               :touchable="false"
               :bullets="false"
-              @ready="logEvents('ready', $event)"
               @slide="logEvents('slide', $event)"
             >
               <template v-slot:arrow-left>
@@ -36,7 +37,7 @@
                         :src="
                           `https://www.youtube.com/embed/${lesson &&
                             lesson.snippet.resourceId
-                              .videoId}?rel=0&showinfo=0&enablejsapi=1`
+                              .videoId}?rel=0&modestbranding=1&showinfo=0enablejsapi=1`
                         "
                         frameborder="0"
                         allowfullscreen
@@ -114,7 +115,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      // lessons: "newbie",
+      loading: "isLoading",
       lessons: "lessonLink"
     })
   },
@@ -130,11 +131,9 @@ export default {
     this.$store.dispatch("loadLessons");
   },
   mounted() {
-    console.log("get the lessons", this.$refs.plyr[0].player.ended);
-    console.log("VUeeee", VueperSlides);
-    this.$refs.plyr[0].player.on("ended", function() {
-      alert(2222);
-    });
+    // this.$refs.plyr[0].player.on("ended", function() {
+    //   alert(2222);
+    // });
   },
   methods: {
     logEvents(eventName, params) {
