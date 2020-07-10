@@ -44,6 +44,9 @@ export default {
   margin-top: 70px;
   a {
     margin: 0 20px;
+    img {
+      width: 15%;
+    }
   }
 }
 </style>
