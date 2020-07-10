@@ -3,7 +3,7 @@
     <el-row>
       <el-col :lg="6">
         <div class="footer-box">
-          <h3 class="logo"><span>spicy</span>mandarin</h3>
+          <img src="../../assets/logo.png" alt="Logo" />
           <p>
             Spicymandarin is an unconventional way or method of teaching
             Mandarin to the students who are going to be enrolled.

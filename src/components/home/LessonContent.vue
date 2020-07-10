@@ -5,7 +5,9 @@
     </div>
     <hr class="sep" />
     <div class="summary">
-      <p>{{ summary }}</p>
+      <ul>
+        <li v-for="para in summary">{{ para }}</li>
+      </ul>
     </div>
     <div class="course-btn">
       <DefaultBtn text="view course" link="/register" />
@@ -17,7 +19,7 @@ import DefaultBtn from "../buttons/Default";
 export default {
   props: {
     heading: String,
-    summary: String
+    summary: Array
   },
   components: {
     DefaultBtn
@@ -39,10 +41,10 @@ export default {
     }
   }
   .summary {
-    p {
-      font-size: 18px;
-      letter-spacing: 0.4px;
-      line-height: 30px;
+    ul li {
+      font-size: 16px;
+      letter-spacing: 0.6px;
+      line-height: 26px;
       font-weight: 100;
     }
   }
