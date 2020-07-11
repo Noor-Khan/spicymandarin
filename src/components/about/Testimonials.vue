@@ -19,9 +19,12 @@
             ></div>
             <div class="inner-content">
               <p>
-                <img src="../../assets/icons/quote-left.svg" alt="" />
+                <img src="../../assets/icons/quote-left.svg" alt="quote-left" />
                 {{ client.feedback }}
-                <img src="../../assets/icons/quote-right.svg" alt="" />
+                <img
+                  src="../../assets/icons/quote-right.svg"
+                  alt="quote-right"
+                />
               </p>
               <h4>{{ client.title }}</h4>
               <div class="stars">

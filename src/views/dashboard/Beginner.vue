@@ -114,7 +114,6 @@ export default {
   },
   computed: {
     ...mapGetters({
-      // lessons: "newbie",
       lessons: "lessonLink"
     })
   },
@@ -129,18 +128,11 @@ export default {
   created() {
     this.$store.dispatch("loadLessons");
   },
-  mounted() {
-    console.log("get the lessons", this.$refs.plyr[0].player.ended);
-    console.log("VUeeee", VueperSlides);
-    this.$refs.plyr[0].player.on("ended", function() {
-      alert(2222);
-    });
-  },
+  mounted() {},
   methods: {
     logEvents(eventName, params) {
       this.currentVideoIndex = params.currentSlide.index;
       this.activeClass = params.currentSlide.index;
-      // }
     },
     currentVideo(index) {
       this.currentVideoIndex = index;

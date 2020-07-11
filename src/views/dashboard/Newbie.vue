@@ -5,13 +5,13 @@
       <el-col :lg="16">
         <div class="main-media">
           <div class="feature-video">
-            <PuSkeleton circle height="50px" :count="2">
-              <h2 v-if="">
-                {{
-                  currentVideoIndex == 0 ? "Your first step!" : "What is next?"
-                }}
-              </h2>
-            </PuSkeleton>
+            <h2>
+              {{
+                currentVideoIndex == 0
+                  ? " Your first step! "
+                  : " What is next? "
+              }}
+            </h2>
             <VueperSlides
               ref="myVueperSlides"
               :touchable="false"
@@ -87,12 +87,9 @@
     </el-row>
     <el-row>
       <el-col :lg="24">
-        <div class="review-box">
+        <div class="review-box" v-if="currentVideoIndex == activeClass">
           <div class="skip">
-            <el-button
-              @click="closeReview(currentVideoIndex)"
-              v-if="currentVideoIndex"
-            >
+            <el-button @click="closeReview(currentVideoIndex)">
               Skip the process
             </el-button>
           </div>
@@ -134,6 +131,7 @@ export default {
     this.$store.dispatch("loadLessons");
   },
   mounted() {
+    console.log("Load lessons", this.lessons);
     // this.$refs.plyr[0].player.on("ended", function() {
     //   alert(2222);
     // });
