@@ -89,7 +89,10 @@
       <el-col :lg="24">
         <div class="review-box">
           <div class="skip">
-            <el-button @click="closeReview()" v-if="showReview">
+            <el-button
+              @click="closeReview(currentVideoIndex)"
+              v-if="currentVideoIndex"
+            >
               Skip the process
             </el-button>
           </div>
@@ -196,7 +199,7 @@ export default {
             }
           }
           .vueperslides__arrow {
-            transform: translateY(0);
+            transform: translateY(15px);
             top: unset;
             bottom: 0 !important;
             &.vueperslides__arrow--prev {

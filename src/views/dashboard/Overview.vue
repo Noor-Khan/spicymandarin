@@ -137,6 +137,7 @@
             :title="`#${index + 1} ${lesson.title}...`"
             :subCategory="lesson.subCategory"
             :img="lesson.img"
+            link="/dashboard/courses/newbie"
           />
         </el-col>
       </el-row>
@@ -165,6 +166,7 @@
             :title="`#${index + 1} ${lesson.title}...`"
             :subCategory="lesson.subCategory"
             :img="lesson.img"
+            link="/dashboard/courses/beginner"
           />
         </el-col>
       </el-row>
@@ -193,16 +195,14 @@
             :title="`#${index + 1} ${lesson.title}...`"
             :subCategory="lesson.subCategory"
             :img="lesson.img"
+            link="/dashboard/courses/intermediate"
           />
         </el-col>
       </el-row>
       <el-row>
         <el-col :span="24">
           <div class="view-more">
-            <DashboardButton
-              text="view more"
-              link="/dashboard/courses/intermediate"
-            />
+            <DashboardButton text="view more" />
           </div>
         </el-col>
       </el-row>
@@ -221,6 +221,7 @@
             :title="`#${index + 1} ${lesson.title}...`"
             :subCategory="lesson.subCategory"
             :img="lesson.img"
+            link="/dashboard/courses/advanced"
           />
         </el-col>
       </el-row>

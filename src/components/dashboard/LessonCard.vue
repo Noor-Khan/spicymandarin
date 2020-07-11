@@ -6,8 +6,9 @@
     </div>
     <div class="lesson-content">
       <div class="lesson-title">
-        <a href="##">
+        <router-link :to="link">
           <h4>{{ title }}</h4>
+        </router-link>
         </a>
       </div>
       <div class="lesson-sub-category">
@@ -22,7 +23,8 @@ export default {
     title: String,
     subCategory: String,
     img: String,
-    saved: Boolean
+    saved: Boolean,
+    link: String
   }
 };
 </script>

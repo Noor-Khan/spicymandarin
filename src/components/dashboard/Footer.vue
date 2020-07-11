@@ -80,6 +80,9 @@
     display: flex;
     justify-content: space-between;
     .copyright {
+      p {
+        color: $white;
+      }
       a {
         font-weight: 100;
         span {

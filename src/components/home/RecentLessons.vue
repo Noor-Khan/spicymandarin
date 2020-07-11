@@ -185,6 +185,7 @@ export default {
             }
             p {
               text-transform: capitalize;
+              color: $white;
             }
           }
         }
