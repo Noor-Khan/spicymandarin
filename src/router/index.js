@@ -52,6 +52,11 @@ const routes = [
     component: () => import("../views/History.vue")
   },
   {
+    path: "/merchandize",
+    name: "merchandize",
+    component: () => import("../views/Merchandize.vue")
+  },
+  {
     path: "/register",
     name: "sign up",
     meta: {
