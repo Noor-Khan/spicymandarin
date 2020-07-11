@@ -5,27 +5,27 @@
         <div class="about-content">
           <div class="main-heading">
             <h4>about spicymandarin</h4>
-            <h2>what is spicymandarin?</h2>
+            <h2>what is new here?</h2>
             <hr class="seperator" />
           </div>
           <div class="about-para">
             <p>
-              SexyMandarin is an educational institution that uses
-              unconventional but memorable methods in teaching Mandarin to our
-              passionate students with our sexy celebrity teachers.
+              All our SexyMandarin team members have hands on experience in
+              learning Mandarin, and we came to a conclusion that the
+              traditional textbook method of teaching is not the way to go about
+              learning this language.
             </p>
             <p>
-              SexyMandarin started off with a group of people who had a fun idea
-              of shooting sexy Chinese girls that could teach Mandarin Chinese
-              in short 2 minute clips. After editing the clip, we decided to
-              post our first video, “Lesson 1: What time is it?” on youtube
-              where it became viral.
+              Many students get overwhelmed when they see the Chinese characters
+              in their course materials and their brain automatically shuts off
+              from learning the language.
             </p>
             <p>
-              The project has been featured in various publications from “The
-              Daily Telegraph” to “Huffington Post”, and even mentioned by Jimmy
-              Falllon, in his U.S. prime time show. With it’s popularity, the
-              SexyMandarin youtube channel has over 2 million hits and counting.
+              We believe that being able to master spoken Chinese is more
+              important than being able to write, and have focused our learning
+              materials with emphasis on tones, and vocabularies not from
+              ordinary textbooks but ones that are commonly used in today’s
+              Chinese spoken language.
             </p>
           </div>
         </div>

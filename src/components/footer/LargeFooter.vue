@@ -15,7 +15,9 @@
           <h3>quick links</h3>
           <ul>
             <li>
-              <a href="##">company history</a>
+              <router-link to="/company-history">
+                company history
+              </router-link>
             </li>
             <li>
               <a href="##">forum</a>

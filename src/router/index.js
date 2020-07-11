@@ -47,6 +47,11 @@ const routes = [
     component: () => import("../views/FAQ.vue")
   },
   {
+    path: "/company-history",
+    name: "company history",
+    component: () => import("../views/History.vue")
+  },
+  {
     path: "/register",
     name: "sign up",
     meta: {
