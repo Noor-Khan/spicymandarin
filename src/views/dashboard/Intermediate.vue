@@ -19,6 +19,7 @@
               @previous="logEvents('previous', $event)"
               @next="logEvents('next', $event)"
               @slide="logEvents('slide', $event)"
+              @before-slide="logEvents('before-slide', $event)"
             >
               <template v-slot:arrow-left>
                 <div class="arrow">
@@ -132,15 +133,15 @@ export default {
   created() {
     this.$store.dispatch("loadLessons");
   },
-  mounted() {
-    console.log("Load lessons", this.lessons);
-  },
+  mounted() {},
   methods: {
     logEvents(eventName, params) {
       if (eventName === "slide") {
         this.currentVideoIndex = params.currentSlide.index;
         this.activeClass = params.currentSlide.index;
       } else if (eventName === "previous" || eventName === "next") {
+        this.$refs.plyr[params.currentSlide.index].player.stop();
+      } else if (eventName === "before-slide") {
         this.$refs.plyr[params.currentSlide.index].player.stop();
       }
     },
