@@ -5,16 +5,19 @@
       <el-col :lg="16">
         <div class="main-media">
           <div class="feature-video">
-            <h2 v-if="">
+            <h2>
               {{
-                currentVideoIndex == 0 ? "Your first step!" : "What is next?"
+                currentVideoIndex == 0
+                  ? " Your first step! "
+                  : " What is next? "
               }}
             </h2>
             <VueperSlides
               ref="myVueperSlides"
               :touchable="false"
               :bullets="false"
-              @ready="logEvents('ready', $event)"
+              @previous="logEvents('previous', $event)"
+              @next="logEvents('next', $event)"
               @slide="logEvents('slide', $event)"
             >
               <template v-slot:arrow-left>
@@ -36,7 +39,7 @@
                         :src="
                           `https://www.youtube.com/embed/${lesson &&
                             lesson.snippet.resourceId
-                              .videoId}?rel=0&showinfo=0&enablejsapi=1`
+                              .videoId}?rel=0&modestbranding=1&showinfo=0enablejsapi=1`
                         "
                         frameborder="0"
                         allowfullscreen
@@ -86,9 +89,9 @@
     </el-row>
     <el-row>
       <el-col :lg="24">
-        <div class="review-box">
+        <div class="review-box" v-if="currentVideoIndex == activeClass">
           <div class="skip">
-            <el-button @click="closeReview()" v-if="showReview">
+            <el-button @click="closeReview(currentVideoIndex)">
               Skip the process
             </el-button>
           </div>
@@ -114,7 +117,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      // lessons: "newbie",
+      loading: "isLoading",
       lessons: "lessonLink"
     })
   },
@@ -130,17 +133,16 @@ export default {
     this.$store.dispatch("loadLessons");
   },
   mounted() {
-    console.log("get the lessons", this.$refs.plyr[0].player.ended);
-    console.log("VUeeee", VueperSlides);
-    this.$refs.plyr[0].player.on("ended", function() {
-      alert(2222);
-    });
+    console.log("Load lessons", this.lessons);
   },
   methods: {
     logEvents(eventName, params) {
-      this.currentVideoIndex = params.currentSlide.index;
-      this.activeClass = params.currentSlide.index;
-      // }
+      if (eventName === "slide") {
+        this.currentVideoIndex = params.currentSlide.index;
+        this.activeClass = params.currentSlide.index;
+      } else if (eventName === "previous" || eventName === "next") {
+        this.$refs.plyr[params.currentSlide.index].player.stop();
+      }
     },
     currentVideo(index) {
       this.currentVideoIndex = index;

@@ -16,6 +16,8 @@
               ref="myVueperSlides"
               :touchable="false"
               :bullets="false"
+              @previous="logEvents('previous', $event)"
+              @next="logEvents('next', $event)"
               @slide="logEvents('slide', $event)"
             >
               <template v-slot:arrow-left>
@@ -132,15 +134,15 @@ export default {
   },
   mounted() {
     console.log("Load lessons", this.lessons);
-    // this.$refs.plyr[0].player.on("ended", function() {
-    //   alert(2222);
-    // });
   },
   methods: {
     logEvents(eventName, params) {
-      this.currentVideoIndex = params.currentSlide.index;
-      this.activeClass = params.currentSlide.index;
-      // }
+      if (eventName === "slide") {
+        this.currentVideoIndex = params.currentSlide.index;
+        this.activeClass = params.currentSlide.index;
+      } else if (eventName === "previous" || eventName === "next") {
+        this.$refs.plyr[params.currentSlide.index].player.stop();
+      }
     },
     currentVideo(index) {
       this.currentVideoIndex = index;
