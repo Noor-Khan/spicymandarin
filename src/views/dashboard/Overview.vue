@@ -137,7 +137,7 @@
             @click="goToCurrentVideo(index, 'newbie')"
           >
             <LessonCard
-              :title="`#${index + 1} ${lesson.snippet.title}...`"
+              :title="`#${index + 1} ${lesson.snippet.title}`"
               :subCategory="lesson.subCategory"
               :img="lesson.snippet.thumbnails.maxres.url"
             />
@@ -278,11 +278,9 @@ export default {
   mounted() {},
   created() {
     this.$store.dispatch("loadLessons");
-    console.log(this.lessons);
   },
   methods: {
     goToCurrentVideo(index, name) {
-      console.log(this.$router);
       this.$router.push({
         name: name,
         params: {

@@ -28,8 +28,8 @@
   </div>
 </template>
 <script>
-import FaqItem from "../components/faq/FaqItem";
-import PageHeader from "../components/Header";
+import FaqItem from "../../components/faq/FaqItem";
+import PageHeader from "../../components/global/Header";
 export default {
   components: {
     PageHeader,

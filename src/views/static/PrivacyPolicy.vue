@@ -163,7 +163,7 @@
   </div>
 </template>
 <script>
-import PageHeader from "../components/Header";
+import PageHeader from "../../components/global/Header";
 export default {
   components: {
     PageHeader
@@ -173,7 +173,7 @@ export default {
 <style lang="scss">
 #PrivacyPolicy {
   margin-top: 70px;
-  background-image: url("../assets/icons/privacy.png");
+  background-image: url("../../assets/icons/privacy.png");
   background-repeat: no-repeat;
   background-position: center right;
   .main-heading {

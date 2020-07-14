@@ -36,7 +36,7 @@
   </section>
 </template>
 <script>
-import IconBox from "../../components/IconBox";
+import IconBox from "../../components/global/IconBox";
 import DefaultBtn from "../../components/buttons/Default";
 export default {
   components: {

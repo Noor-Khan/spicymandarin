@@ -12,8 +12,8 @@
   </div>
 </template>
 <script>
-import Navbar from "../components/Navbar";
-import Donate from "../components/Donate";
+import Navbar from "../components/global/Navbar";
+import Donate from "../components/global/Donate";
 import LargeFooter from "../components/footer/LargeFooter";
 import BottomFooter from "../components/footer/BottomFooter";
 export default {

@@ -40,7 +40,7 @@
   </div>
 </template>
 <script>
-import PageHeader from "../components/Header";
+import PageHeader from "../../components/global/Header";
 export default {
   components: {
     PageHeader

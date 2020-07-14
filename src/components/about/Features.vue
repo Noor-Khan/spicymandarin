@@ -30,7 +30,7 @@
   </section>
 </template>
 <script>
-import IconBox from "../IconBox";
+import IconBox from "../global/IconBox";
 export default {
   components: {
     IconBox

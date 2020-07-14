@@ -27,7 +27,6 @@ export default new Vuex.Store({
     getLessons(state, payload) {
       state.courseLessons = payload;
       state.isLoading = true;
-      console.log("link: ", payload);
     }
   },
   actions: {
@@ -39,6 +38,7 @@ export default new Vuex.Store({
         .then(response => {
           var result = response.data.items;
           commit("getLessons", result);
+          console.log(response);
         });
     }
   },

@@ -118,7 +118,7 @@
   </section>
 </template>
 <script>
-import IconBox from "../../components/IconBox";
+import IconBox from "../../components/global/IconBox";
 import LessonContent from "../../components/home/LessonContent";
 export default {
   components: {

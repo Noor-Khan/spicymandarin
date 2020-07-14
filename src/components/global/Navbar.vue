@@ -8,8 +8,8 @@
       :style="{ top: scrollPoint > 30 ? scrollPoint - scrollPoint : '' }"
     >
       <a href="#" class="nav-brand">
-        <img src="../assets/logo-red.png" alt="" v-if="scrollPoint > 30" />
-        <img src="../assets/logo.png" alt="" v-else />
+        <img src="../../assets/logo-red.png" alt="" v-if="scrollPoint > 30" />
+        <img src="../../assets/logo.png" alt="" v-else />
         <!-- <h2><span style="color:#ee2625;">spicy</span>mandarin</h2> -->
       </a>
       <input class="menu-btn" type="checkbox" id="menu-btn" />
@@ -46,13 +46,13 @@
         <ul class="signup">
           <li>
             <router-link to="/login">
-              <img src="../assets/icons/user-2.svg" alt="" />
+              <img src="../../assets/icons/user-2.svg" alt="" />
               login
             </router-link>
           </li>
           <li>
             <router-link to="/signup">
-              <img src="../assets/icons/unlock-2.svg" alt="" />
+              <img src="../../assets/icons/unlock-2.svg" alt="" />
               registration
             </router-link>
           </li>
@@ -62,7 +62,7 @@
   </div>
 </template>
 <script>
-import TopNav from "@/components/TopNav.vue";
+import TopNav from "./TopNav.vue";
 export default {
   props: ["scrollPoint"],
   components: {

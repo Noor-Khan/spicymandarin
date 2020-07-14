@@ -1,7 +1,7 @@
 <template>
   <section id="Partners" class="section">
     <el-row>
-      <el-col lg="6">
+      <el-col :lg="6">
         <a
           :href="partner.link"
           v-for="(partner, index) in partners"

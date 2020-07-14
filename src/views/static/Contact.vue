@@ -93,8 +93,8 @@
   </div>
 </template>
 <script>
-import PageHeader from "../components/Header";
-import DefaultButton from "../components/buttons/Default";
+import PageHeader from "../../components/global/Header";
+import DefaultButton from "../../components/buttons/Default";
 export default {
   components: {
     PageHeader,

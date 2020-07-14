@@ -16,8 +16,8 @@
   </div>
 </template>
 <script>
-import ProductCard from "../components/ProductCard";
-import Header from "../components/Header";
+import ProductCard from "../../components/global/ProductCard";
+import Header from "../../components/global/Header";
 export default {
   components: {
     ProductCard,

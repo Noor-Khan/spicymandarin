@@ -6,12 +6,12 @@
         <el-col :span="24">
           <div class="donate-box">
             <el-button>
-              <img src="../assets/icons/paypal.svg" alt="" />
+              <img src="../../assets/icons/paypal.svg" alt="" />
             </el-button>
             <h3>or</h3>
             <el-button>pay with credit card</el-button>
             <br />
-            <img src="../assets/icons/master-card.svg" alt="" />
+            <img src="../../assets/icons/master-card.svg" alt="" />
           </div>
         </el-col>
       </el-row>
@@ -19,7 +19,7 @@
   </div>
 </template>
 <script>
-import PageHeader from "../components/Header";
+import PageHeader from "../../components/global/Header";
 export default {
   components: {
     PageHeader

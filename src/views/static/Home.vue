@@ -15,7 +15,7 @@ import Features from "@/components/home/Features.vue";
 import Lessons from "@/components/home/Lessons.vue";
 import RecentLessons from "@/components/home/RecentLessons.vue";
 import NewsLetter from "@/components/home/NewsLetter.vue";
-import Donate from "@/components/Donate.vue";
+import Donate from "@/components/global/Donate.vue";
 import LargeFooter from "@/components/footer/LargeFooter.vue";
 import BottomFooter from "@/components/footer/BottomFooter.vue";
 

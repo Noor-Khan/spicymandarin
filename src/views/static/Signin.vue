@@ -92,7 +92,7 @@
   </div>
 </template>
 <script>
-import DefaultButton from "../components/buttons/Default";
+import DefaultButton from "../../components/buttons/Default";
 export default {
   components: {
     DefaultButton

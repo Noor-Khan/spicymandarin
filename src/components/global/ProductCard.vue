@@ -16,7 +16,7 @@
   </div>
 </template>
 <script>
-import DefaultButton from "../components/buttons/DashboardButton";
+import DefaultButton from "../../components/buttons/DashboardButton";
 export default {
   props: {
     title: String,
