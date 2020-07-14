@@ -76,7 +76,6 @@
       <el-row>
         <el-col :span="24">
           <vueper-slides
-            :breakpoints="{ 800: { visibleSlides: 1, slideMultiple: 2 } }"
             slide-image-inside
             :visible-slides="3"
             :arrows-outside="true"
@@ -95,7 +94,7 @@
             <vueper-slide
               v-for="(lesson, index) in lessons"
               :key="index"
-              :image="lesson.img"
+              :image="lesson.snippet.thumbnails.maxres.url"
               style="background: #d9d9d9;"
             >
               <template v-slot:content>
@@ -108,13 +107,13 @@
                     <div class="lesson-title">
                       <a href="##">
                         <h4>
-                          {{ lesson.title }}
+                          {{ lesson.snippet.title }}
                         </h4>
                       </a>
                     </div>
-                    <div class="lesson-category">
+                    <!-- <div class="lesson-category">
                       <p>{{ lesson.category }}</p>
-                    </div>
+                    </div> -->
                   </div>
                 </div>
               </template>
@@ -133,12 +132,16 @@
       </el-row>
       <el-row :gutter="10">
         <el-col :lg="8" v-for="(lesson, index) in lessons" :key="index">
-          <LessonCard
-            :title="`#${index + 1} ${lesson.title}...`"
-            :subCategory="lesson.subCategory"
-            :img="lesson.img"
-            link="/dashboard/courses/newbie"
-          />
+          <div
+            class="card-container"
+            @click="goToCurrentVideo(index, 'newbie')"
+          >
+            <LessonCard
+              :title="`#${index + 1} ${lesson.snippet.title}...`"
+              :subCategory="lesson.subCategory"
+              :img="lesson.snippet.thumbnails.maxres.url"
+            />
+          </div>
         </el-col>
       </el-row>
       <el-row>
@@ -162,12 +165,16 @@
       </el-row>
       <el-row :gutter="10">
         <el-col :lg="8" v-for="(lesson, index) in lessons" :key="index">
-          <LessonCard
-            :title="`#${index + 1} ${lesson.title}...`"
-            :subCategory="lesson.subCategory"
-            :img="lesson.img"
-            link="/dashboard/courses/beginner"
-          />
+          <div
+            class="card-container"
+            @click="goToCurrentVideo(index, 'beginner')"
+          >
+            <LessonCard
+              :title="`#${index + 1} ${lesson.snippet.title}...`"
+              :subCategory="lesson.subCategory"
+              :img="lesson.snippet.thumbnails.maxres.url"
+            />
+          </div>
         </el-col>
       </el-row>
       <el-row>
@@ -191,12 +198,16 @@
       </el-row>
       <el-row :gutter="10">
         <el-col :lg="8" v-for="(lesson, index) in lessons" :key="index">
-          <LessonCard
-            :title="`#${index + 1} ${lesson.title}...`"
-            :subCategory="lesson.subCategory"
-            :img="lesson.img"
-            link="/dashboard/courses/intermediate"
-          />
+          <div
+            class="card-container"
+            @click="goToCurrentVideo(index, 'intermediate')"
+          >
+            <LessonCard
+              :title="`#${index + 1} ${lesson.snippet.title}...`"
+              :subCategory="lesson.subCategory"
+              :img="lesson.snippet.thumbnails.maxres.url"
+            />
+          </div>
         </el-col>
       </el-row>
       <el-row>
@@ -217,12 +228,16 @@
       </el-row>
       <el-row :gutter="10">
         <el-col :lg="8" v-for="(lesson, index) in lessons" :key="index">
-          <LessonCard
-            :title="`#${index + 1} ${lesson.title}...`"
-            :subCategory="lesson.subCategory"
-            :img="lesson.img"
-            link="/dashboard/courses/advanced"
-          />
+          <div
+            class="card-container"
+            @click="goToCurrentVideo(index, 'advanced')"
+          >
+            <LessonCard
+              :title="`#${index + 1} ${lesson.snippet.title}...`"
+              :subCategory="lesson.subCategory"
+              :img="lesson.snippet.thumbnails.maxres.url"
+            />
+          </div>
         </el-col>
       </el-row>
       <el-row>
@@ -239,6 +254,7 @@
   </div>
 </template>
 <script>
+import { mapGetters } from "vuex";
 import { VueperSlides, VueperSlide } from "vueperslides";
 import DashboardBreadcrumb from "../../components/dashboard/DashboardBreadcrumb";
 import LessonCard from "../../components/dashboard/LessonCard";
@@ -251,47 +267,29 @@ export default {
     LessonCard,
     DashboardButton
   },
+  computed: {
+    ...mapGetters({
+      lessons: "courseLessons"
+    })
+  },
   data() {
-    return {
-      lessons: [
-        {
-          title: "Purus non enim praesent elementum",
-          category: "beginner",
-          subCategory: "travel",
-          img: "/images/videoimg.jpg"
-        },
-        {
-          title: "Purus non enim praesent elementum",
-          category: "intermediate",
-          subCategory: "business deal",
-          img: "/images/videoimg.jpg"
-        },
-        {
-          title: "Purus non enim praesent elementum",
-          category: "newbie",
-          subCategory: "booking",
-          img: "/images/videoimg.jpg"
-        },
-        {
-          title: "Purus non enim praesent elementum",
-          category: "advanced",
-          subCategory: "reservation",
-          img: "/images/videoimg.jpg"
-        },
-        {
-          title: "Purus non enim praesent elementum",
-          category: "advanced",
-          subCategory: "party",
-          img: "/images/videoimg.jpg"
-        },
-        {
-          title: "Purus non enim praesent elementum",
-          category: "advanced",
-          subCategory: "wedding",
-          img: "/images/videoimg.jpg"
+    return {};
+  },
+  mounted() {},
+  created() {
+    this.$store.dispatch("loadLessons");
+    console.log(this.lessons);
+  },
+  methods: {
+    goToCurrentVideo(index, name) {
+      console.log(this.$router);
+      this.$router.push({
+        name: name,
+        params: {
+          index: index
         }
-      ]
-    };
+      });
+    }
   }
 };
 </script>
@@ -349,6 +347,11 @@ export default {
     border-radius: 5px;
     margin: 2rem 0;
     padding: 20px 25px 60px 25px;
+    .card-container {
+      &:hover {
+        cursor: pointer;
+      }
+    }
     .dashboard-heading {
       text-align: left;
       h2 {

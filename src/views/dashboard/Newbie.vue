@@ -7,7 +7,7 @@
           <div class="feature-video">
             <h2>
               {{
-                currentVideoIndex == 0
+                undefined && currentVideoIndex == 0
                   ? " Your first step! "
                   : " What is next? "
               }}
@@ -52,7 +52,7 @@
                   </vue-plyr>
                   <div class="lesson-title">
                     <h3>
-                      {{ lesson.snippet.title }}
+                      {{ lesson && lesson.snippet.title }}
                     </h3>
                   </div>
                 </template>
@@ -119,7 +119,7 @@ export default {
   computed: {
     ...mapGetters({
       loading: "isLoading",
-      lessons: "lessonLink"
+      lessons: "courseLessons"
     })
   },
   data() {
@@ -133,7 +133,9 @@ export default {
   created() {
     this.$store.dispatch("loadLessons");
   },
-  mounted() {},
+  mounted() {
+    this.$refs.myVueperSlides.goToSlide(this.$route.params.index);
+  },
   methods: {
     logEvents(eventName, params) {
       if (eventName === "slide") {
@@ -142,6 +144,7 @@ export default {
       } else if (eventName === "previous" || eventName === "next") {
         this.$refs.plyr[params.currentSlide.index].player.stop();
       } else if (eventName === "before-slide") {
+        console.log("Event Name: ", params.currentSlide.index);
         this.$refs.plyr[params.currentSlide.index].player.stop();
       }
     },

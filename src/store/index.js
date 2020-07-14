@@ -7,92 +7,14 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     isLoading: false,
-    lessonLink: "",
-    lessons: {
-      newbie: [
-        {
-          title: "Quaerat illum voluptatem omnis magnam",
-          description:
-            "Culpa dicta nostrum a corrupti. Quaerat illum voluptatem omnis magnam vitae obcaecati nemo voluptatum nesciunt asperiores officiis",
-          category: "newbie",
-          subCategory: "reservation",
-          img: "/images/videoimg.jpg",
-          videoId: "#"
-        },
-        {
-          title: "Quaerat illum voluptatem omnis magnam",
-          description:
-            "Culpa dicta nostrum a corrupti. Quaerat illum voluptatem omnis magnam vitae obcaecati nemo voluptatum nesciunt asperiores officiis",
-          category: "newbie",
-          subCategory: "order food",
-          img: "/images/videoimg.jpg",
-          videoId: "#"
-        },
-        {
-          title: "Quaerat illum voluptatem omnis magnam",
-          description:
-            "Culpa dicta nostrum a corrupti. Quaerat illum voluptatem omnis magnam vitae obcaecati nemo voluptatum nesciunt asperiores officiis",
-          category: "newbie",
-          subCategory: "apartment",
-          img: "/images/videoimg.jpg",
-          videoId: "#"
-        },
-        {
-          title: "Quaerat illum voluptatem omnis magnam",
-          description:
-            "Culpa dicta nostrum a corrupti. Quaerat illum voluptatem omnis magnam vitae obcaecati nemo voluptatum nesciunt asperiores officiis",
-          category: "newbie",
-          subCategory: "travel",
-          img: "/images/videoimg.jpg",
-          videoId: "#"
-        }
-      ],
-      beginner: [
-        {
-          title: "Quaerat illum voluptatem omnis magnam",
-          description:
-            "Culpa dicta nostrum a corrupti. Quaerat illum voluptatem omnis magnam vitae obcaecati nemo voluptatum nesciunt asperiores officiis",
-          category: "beginner",
-          subCategory: "reservation",
-          img: "/images/videoimg.jpg",
-          videoId: "#"
-        },
-        {
-          title: "Quaerat illum voluptatem omnis magnam",
-          description:
-            "Culpa dicta nostrum a corrupti. Quaerat illum voluptatem omnis magnam vitae obcaecati nemo voluptatum nesciunt asperiores officiis",
-          category: "beginner",
-          subCategory: "order food",
-          img: "/images/videoimg.jpg",
-          videoId: "#"
-        },
-        {
-          title: "Quaerat illum voluptatem omnis magnam",
-          description:
-            "Culpa dicta nostrum a corrupti. Quaerat illum voluptatem omnis magnam vitae obcaecati nemo voluptatum nesciunt asperiores officiis",
-          category: "beginner",
-          subCategory: "travel",
-          img: "/images/videoimg.jpg",
-          videoId: "#"
-        },
-        {
-          title: "Quaerat illum voluptatem omnis magnam",
-          description:
-            "Culpa dicta nostrum a corrupti. Quaerat illum voluptatem omnis magnam vitae obcaecati nemo voluptatum nesciunt asperiores officiis",
-          category: "beginner",
-          subCategory: "apartment",
-          img: "/images/videoimg.jpg",
-          videoId: "#"
-        }
-      ]
-    }
+    courseLessons: ""
   },
   getters: {
     isLoading(state) {
       return state.isLoading;
     },
-    lessonLink(state) {
-      return state.lessonLink;
+    courseLessons(state) {
+      return state.courseLessons;
     },
     newbie(state) {
       return state.lessons.newbie;
@@ -103,7 +25,7 @@ export default new Vuex.Store({
   },
   mutations: {
     getLessons(state, payload) {
-      state.lessonLink = payload;
+      state.courseLessons = payload;
       state.isLoading = true;
       console.log("link: ", payload);
     }

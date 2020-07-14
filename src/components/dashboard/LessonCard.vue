@@ -6,9 +6,7 @@
     </div>
     <div class="lesson-content">
       <div class="lesson-title">
-        <router-link :to="link">
           <h4>{{ title }}</h4>
-        </router-link>
         </a>
       </div>
       <div class="lesson-sub-category">
@@ -24,8 +22,7 @@ export default {
     subCategory: String,
     img: String,
     saved: Boolean,
-    link: String
-  }
+ }
 };
 </script>
 <style lang="scss">
