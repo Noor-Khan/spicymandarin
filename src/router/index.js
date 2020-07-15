@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
+import Home from "../views/static/Home.vue";
 import Newbie from "../views/dashboard/Newbie.vue";
 
 Vue.use(VueRouter);
@@ -14,32 +14,47 @@ const routes = [
   {
     path: "/about",
     name: "About us",
-    component: () => import("../views/About.vue")
+    component: () => import("../views/static/About.vue")
   },
   {
     path: "/team",
     name: "our team",
-    component: () => import("../views/Team.vue")
+    component: () => import("../views/static/Team.vue")
   },
   {
     path: "/contact",
     name: "contact us",
-    component: () => import("../views/Contact.vue")
+    component: () => import("../views/static/Contact.vue")
   },
   {
     path: "/donate",
     name: "donate us",
-    component: () => import("../views/DonatePage.vue")
+    component: () => import("../views/static/DonatePage.vue")
   },
   {
     path: "/privacy-policy",
     name: "privacy & policy",
-    component: () => import("../views/PrivacyPolicy.vue")
+    component: () => import("../views/static/PrivacyPolicy.vue")
   },
   {
     path: "/terms-conditions",
     name: "terms & conditions",
-    component: () => import("../views/TermsConditions.vue")
+    component: () => import("../views/static/TermsConditions.vue")
+  },
+  {
+    path: "/guidelines",
+    name: "guidelines",
+    component: () => import("../views/static/FAQ.vue")
+  },
+  {
+    path: "/company-history",
+    name: "company history",
+    component: () => import("../views/static/History.vue")
+  },
+  {
+    path: "/merchandize",
+    name: "merchandize",
+    component: () => import("../views/static/Merchandize.vue")
   },
   {
     path: "/register",
@@ -47,7 +62,7 @@ const routes = [
     meta: {
       layout: "blank"
     },
-    component: () => import("../views/Signup.vue")
+    component: () => import("../views/static/Signup.vue")
   },
   {
     path: "/signin",
@@ -55,7 +70,7 @@ const routes = [
     meta: {
       layout: "blank"
     },
-    component: () => import("../views/Signin.vue")
+    component: () => import("../views/static/Signin.vue")
   },
   // DASHBOARD PAGES
 
@@ -169,7 +184,7 @@ const routes = [
     meta: {
       layout: "blank"
     },
-    component: () => import("../views/404.vue")
+    component: () => import("../views/static/404.vue")
   }
 ];
 

@@ -35,7 +35,7 @@ export default {
 #header {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #000000 99.44%),
     linear-gradient(180deg, #000000 0%, rgba(255, 255, 255, 0) 100%),
-    url("../assets/images/header.jpg");
+    url("../../assets/images/header.jpg");
   background-position: center;
   background-size: cover;
   padding-inline: 20px 0;

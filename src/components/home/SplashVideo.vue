@@ -1,11 +1,18 @@
 <template>
   <section id="SplashVideo">
     <div class="overlay"></div>
-    <LazyYoutubeVideo
-      :autoplay="true"
-      src="https://www.youtube.com/embed/5v_ICyzqZ5g?rel=0&loop=1&autoplay=1&playlist=5v_ICyzqZ5g"
-    >
-    </LazyYoutubeVideo>
+    <vue-plyr ref="plyr">
+      <div class="plyr__video-embed">
+        <iframe
+          src="https://www.youtube.com/embed/ePI4BD3y-Zo?rel=0&loop=1&autoplay=1&playlist=ePI4BD3y-Zo"
+          frameborder="0"
+          allowfullscreen
+          allowtransparency
+          allow="autoplay"
+        >
+        </iframe>
+      </div>
+    </vue-plyr>
     <el-row>
       <el-col :span="24">
         <div class="content-wrapper">
@@ -24,6 +31,9 @@ import DefaultButton from "../buttons/Default";
 export default {
   components: {
     DefaultButton
+  },
+  mounted() {
+    this.$refs.plyr.player.muted = true;
   }
 };
 </script>
@@ -46,10 +56,17 @@ export default {
       rgba(255, 255, 255, 0) 100%
     ) !important;
   }
-  .y-video {
+  .plyr {
     position: absolute;
     width: 100%;
+    height: 100%;
     z-index: 0;
+    .plyr__controls {
+      display: none;
+    }
+    .plyr__control--overlaid {
+      display: none;
+    }
   }
   .content-wrapper {
     display: table;

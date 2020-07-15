@@ -36,7 +36,7 @@
   </section>
 </template>
 <script>
-import IconBox from "../../components/IconBox";
+import IconBox from "../../components/global/IconBox";
 import DefaultBtn from "../../components/buttons/Default";
 export default {
   components: {
@@ -47,22 +47,25 @@ export default {
     return {
       features: [
         {
-          heading: "easy way to learn",
+          heading: "Virtual Classroom",
           iconUrl: "/images/icons/feature.svg",
-          summary:
-            "Diam consequat vestibulum ut vulputate. Iaculis lacinia aliquet vel dignissim sodales non sed lacinia aliquet vel dignissim lacinia."
+          summary: [
+            "The Virtual Classroom is designed to give you Mandarin lessons online as if you were in a real classroom. We utilize the latest conferencing technology with..."
+          ]
         },
         {
-          heading: "easy way to learn",
+          heading: "Private lessons",
           iconUrl: "/images/icons/feature.svg",
-          summary:
-            "Diam consequat vestibulum ut vulputate. Iaculis lacinia aliquet vel dignissim sodales non sed lacinia aliquet vel dignissim lacinia."
+          summary: [
+            "This is your chance to learn Mandarin quick 'n' easy with your SexyMandarin teacher at your full attention."
+          ]
         },
         {
-          heading: "easy way to learn",
+          heading: "Self-study lessons",
           iconUrl: "/images/icons/feature.svg",
-          summary:
-            "Diam consequat vestibulum ut vulputate. Iaculis lacinia aliquet vel dignissim sodales non sed lacinia aliquet vel dignissim lacinia."
+          summary: [
+            "With our Self-study lessons, study your vocabulary, grammar and dialogues, practice with exercises and correct your mistakes with the suggested answers..."
+          ]
         }
       ]
     };

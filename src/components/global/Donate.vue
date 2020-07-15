@@ -14,7 +14,7 @@
   </section>
 </template>
 <script>
-import DefaultButton from "../components/buttons/Default";
+import DefaultButton from "../buttons/Default";
 export default {
   components: {
     DefaultButton

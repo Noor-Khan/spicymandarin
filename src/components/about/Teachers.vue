@@ -1,16 +1,16 @@
 <template>
-  <section id="Models" class="section">
+  <section id="Teachers" class="section">
     <el-row>
       <el-col :span="24">
         <div class="main-heading">
-          <h4>meet our models</h4>
-          <h2>our models</h2>
+          <h4>meet our Teachers</h4>
+          <h2>our Teachers</h2>
           <hr class="seperator" />
         </div>
       </el-col>
     </el-row>
     <el-row>
-      <div class="models-box">
+      <div class="teachers-box">
         <vueper-slides
           :breakpoints="{ 800: { visibleSlides: 1, slideMultiple: 2 } }"
           slide-image-inside
@@ -51,7 +51,7 @@
             <img src="../../assets/icons/hover-left.svg" alt="prev" v-else />
           </div>
           <vueper-slide
-            v-for="(model, index) in models"
+            v-for="(model, index) in teachers"
             :key="index"
             :image="model.img"
             style="background: #d9d9d9;"
@@ -83,7 +83,7 @@ export default {
     return {
       prevIcon: true,
       nextIcon: true,
-      models: [
+      teachers: [
         {
           title: "CHANGYING",
           category: "beginner",
@@ -120,9 +120,9 @@ export default {
 };
 </script>
 <style lang="scss">
-#Models {
+#Teachers {
   margin-top: 70px;
-  .models-box {
+  .teachers-box {
     margin: 3em 0;
   }
   .vueperslides__parallax-wrapper {
@@ -171,6 +171,7 @@ export default {
             color: #fff;
           }
           p {
+            color: #f6f6f6;
             text-transform: capitalize;
           }
         }

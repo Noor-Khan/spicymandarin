@@ -75,12 +75,12 @@
             <hr class="sep" />
             <p>
               <i class="el-icon-map-location"></i>
-              Street: Xin Xing Lu 13hao Tian Ci Yuan 8hao Lou Di Shang Bei Ce
-              4lou.
+              Street: 13/F, C Wisdom Centre, 35-37 Hollywood Road Central, Hong
+              Kong.
             </p>
             <p>
               <i class="el-icon-phone"></i>
-              Phone: +86. 13052810762
+              Phone: +852 5808 3500
             </p>
             <p>
               <i class="el-icon-message"></i>
@@ -93,8 +93,8 @@
   </div>
 </template>
 <script>
-import PageHeader from "../components/Header";
-import DefaultButton from "../components/buttons/Default";
+import PageHeader from "../../components/global/Header";
+import DefaultButton from "../../components/buttons/Default";
 export default {
   components: {
     PageHeader,

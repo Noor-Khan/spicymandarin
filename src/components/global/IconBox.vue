@@ -7,7 +7,12 @@
       <h4>{{ heading }}</h4>
     </div>
     <div class="summary">
-      <p>{{ summary }}</p>
+      <p v-for="(para, index) in summary">{{ para }}</p>
+    </div>
+    <div v-if="download">
+      <a :href="download">
+        Download PDF
+      </a>
     </div>
     <hr class="seperator" />
   </div>
@@ -17,7 +22,8 @@ export default {
   props: {
     iconUrl: String,
     heading: String,
-    summary: String
+    summary: Array,
+    download: String
   }
 };
 </script>

@@ -6,13 +6,12 @@
     </div>
     <div class="lesson-content">
       <div class="lesson-title">
-        <a href="##">
-          <h4>{{ title }}</h4>
+          <h4>{{title.slice(0, 38)}}...</h4>
         </a>
       </div>
-      <div class="lesson-sub-category">
+      <!-- <div class="lesson-sub-category">
         <p>{{ subCategory }}</p>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -22,8 +21,13 @@ export default {
     title: String,
     subCategory: String,
     img: String,
-    saved: Boolean
-  }
+    saved: Boolean,
+ },
+ data() {
+   return {
+      max: 25
+   }
+ }
 };
 </script>
 <style lang="scss">
@@ -40,14 +44,11 @@ export default {
     left: 20px;
     bottom: 0;
     .lesson-title {
-      a {
-        text-decoration: none;
         h4 {
           font-weight: 400;
           margin-bottom: 0;
           color: #fff;
         }
-      }
     }
     .lesson-sub-category {
       margin: 5px 0;
