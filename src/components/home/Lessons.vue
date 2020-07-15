@@ -27,11 +27,18 @@
         </el-col>
         <el-col :lg="12" :sm="24">
           <div class="lesson-video">
-            <img
-              src="../../assets/icons/video.svg"
-              alt=""
-              class="img-responsive"
-            />
+            <vue-plyr ref="plyr">
+              <div class="plyr__video-embed">
+                <iframe
+                  src="https://www.youtube.com/embed/ePI4BD3y-Zo?rel=0&loop=1&autoplay=0&playlist=ePI4BD3y-Zo"
+                  frameborder="0"
+                  allowfullscreen
+                  allowtransparency
+                  allow="autoplay"
+                >
+                </iframe>
+              </div>
+            </vue-plyr>
           </div>
         </el-col>
       </el-row>
@@ -40,11 +47,18 @@
       <el-row :gutter="20">
         <el-col :lg="12" :sm="24">
           <div class="lesson-video">
-            <img
-              src="../../assets/icons/video.svg"
-              alt=""
-              class="img-responsive"
-            />
+            <vue-plyr ref="plyr">
+              <div class="plyr__video-embed">
+                <iframe
+                  src="https://www.youtube.com/embed/ePI4BD3y-Zo?rel=0&loop=1&autoplay=0&playlist=ePI4BD3y-Zo"
+                  frameborder="0"
+                  allowfullscreen
+                  allowtransparency
+                  allow="autoplay"
+                >
+                </iframe>
+              </div>
+            </vue-plyr>
           </div>
         </el-col>
         <el-col :lg="12" :sm="24" :pull="0">
@@ -80,11 +94,18 @@
         </el-col>
         <el-col :lg="12" :sm="24">
           <div class="lesson-video">
-            <img
-              src="../../assets/icons/video.svg"
-              alt=""
-              class="img-responsive"
-            />
+            <vue-plyr ref="plyr">
+              <div class="plyr__video-embed">
+                <iframe
+                  src="https://www.youtube.com/embed/ePI4BD3y-Zo?rel=0&loop=1&autoplay=0&playlist=ePI4BD3y-Zo"
+                  frameborder="0"
+                  allowfullscreen
+                  allowtransparency
+                  allow="autoplay"
+                >
+                </iframe>
+              </div>
+            </vue-plyr>
           </div>
         </el-col>
       </el-row>
@@ -93,11 +114,18 @@
       <el-row :gutter="20">
         <el-col :lg="12" :sm="24">
           <div class="lesson-video">
-            <img
-              src="../../assets/icons/video.svg"
-              alt=""
-              class="img-responsive"
-            />
+            <vue-plyr ref="plyr">
+              <div class="plyr__video-embed">
+                <iframe
+                  src="https://www.youtube.com/embed/ePI4BD3y-Zo?rel=0&loop=1&autoplay=0&playlist=ePI4BD3y-Zo"
+                  frameborder="0"
+                  allowfullscreen
+                  allowtransparency
+                  allow="autoplay"
+                >
+                </iframe>
+              </div>
+            </vue-plyr>
           </div>
         </el-col>
         <el-col :lg="12" :sm="24" :pull="0">

@@ -12,7 +12,6 @@
     <el-row>
       <div class="recent-lessons-box">
         <vueper-slides
-          :breakpoints="{ 800: { visibleSlides: 1, slideMultiple: 2 } }"
           slide-image-inside
           :visible-slides="3"
           :arrows-outside="true"
@@ -53,7 +52,7 @@
           <vueper-slide
             v-for="(lesson, index) in lessons"
             :key="index"
-            :image="lesson.img"
+            :image="lesson.snippet.thumbnails.maxres.url"
             style="background: #d9d9d9;"
           >
             <template v-slot:content>
@@ -61,10 +60,10 @@
                 <div class="overlay"></div>
                 <div class="slider-content">
                   <a href="##">
-                    <h4>{{ lesson.title }}</h4>
+                    <h4>{{ lesson.snippet.title.slice(0, 32) }}...</h4>
                   </a>
                   <hr class="sep" />
-                  <p>{{ lesson.category }}</p>
+                  <!-- <p>{{ lesson.category }}</p> -->
                 </div>
               </div>
             </template>
@@ -75,49 +74,26 @@
   </section>
 </template>
 <script>
+import { mapGetters } from "vuex";
 import { VueperSlides, VueperSlide } from "vueperslides";
 export default {
   components: {
     VueperSlides,
     VueperSlide
   },
+  computed: {
+    ...mapGetters({
+      lessons: "courseLessons"
+    })
+  },
   data() {
     return {
       prevIcon: true,
-      nextIcon: true,
-      lessons: [
-        {
-          title: "swimming pool",
-          category: "beginner",
-          img: "/images/videoimg.jpg"
-        },
-        {
-          title: "swimming pool",
-          category: "intermediate",
-          img: "/images/videoimg.jpg"
-        },
-        {
-          title: "swimming pool",
-          category: "newbie",
-          img: "/images/videoimg.jpg"
-        },
-        {
-          title: "swimming pool",
-          category: "advanced",
-          img: "/images/videoimg.jpg"
-        },
-        {
-          title: "swimming pool",
-          category: "advanced",
-          img: "/images/videoimg.jpg"
-        },
-        {
-          title: "swimming pool",
-          category: "advanced",
-          img: "/images/videoimg.jpg"
-        }
-      ]
+      nextIcon: true
     };
+  },
+  created() {
+    this.$store.dispatch("loadLessons");
   }
 };
 </script>

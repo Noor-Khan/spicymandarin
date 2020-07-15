@@ -88,20 +88,20 @@
         </div>
       </el-col>
     </el-row>
-    <el-row>
-      <el-col :lg="24">
-        <div class="review-box" v-if="currentVideoIndex == activeClass">
-          <div class="skip">
-            <el-button @click="closeReview(currentVideoIndex)">
-              Skip the process
-            </el-button>
+    <transition name="slide-fade">
+      <el-row v-for="(lesson, index) in lessons" :key="index">
+        <el-col :lg="24">
+          <div class="review-box">
+            <div class="skip">
+              <el-button @click="closeReview(currentVideoIndex)">
+                Skip the process
+              </el-button>
+            </div>
+            <ReviewLesson />
           </div>
-          <transition name="slide-fade">
-            <ReviewLesson v-if="showReview" />
-          </transition>
-        </div>
-      </el-col>
-    </el-row>
+        </el-col>
+      </el-row>
+    </transition>
   </div>
 </template>
 <script>
@@ -144,7 +144,6 @@ export default {
       } else if (eventName === "previous" || eventName === "next") {
         this.$refs.plyr[params.currentSlide.index].player.stop();
       } else if (eventName === "before-slide") {
-        console.log("Event Name: ", params.currentSlide.index);
         this.$refs.plyr[params.currentSlide.index].player.stop();
       }
     },
